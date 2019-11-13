@@ -13,6 +13,4 @@ npm install -g expo-cli
 
 npm start
 OR
-expo start --android
-expo start --ios
-
+expo start 
