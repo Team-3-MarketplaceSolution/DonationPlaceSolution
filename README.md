@@ -1,41 +1,42 @@
 # DonationPlaceSolution
-Mobile Application 
-React Native App
+#Mobile Application 
+#React Native App
+Apple + Android
 
-Dependencies: 
+#Dependencies: 
 Node
 expo
 
 How to get the application running: 
 
-1) Open terminal to the directory you would like to copy the git repository to.
+#1) Open terminal to the directory you would like to copy the git repository to.
 
-2) Enter the following command: 
+#2) Enter the following command: 
 
     git clone https://github.com/Team-3-MarketplaceSolution/DonationPlaceSolution
 
-3) Once the repository is created, navigate to it: 
+#3) Once the repository is created, navigate to it: 
 
     cd .\DonationPlaceSolution\
 
 
 
 
-4)install npm with the following command:
+#4)install npm with the following command:
 
     npm install
 
 
 
 
-5) navigate to:
+#5) navigate to:
 
     \node_modules\metro-config\src\defaults\blacklist.js
 
 
 
 
-6) edit blacklist.js > 
+#6) edit blacklist.js > 
 
     CHANGE
 
