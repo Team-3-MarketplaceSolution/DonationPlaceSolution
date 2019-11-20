@@ -7,6 +7,9 @@ Apple + Android
 Node
 expo
 
+To run application: 
+type expo start in terminal once you are in the project's directory.
+
 How to get the application running: 
 
 1) Open terminal to the directory you would like to copy the git repository to.
