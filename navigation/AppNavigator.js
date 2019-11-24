@@ -6,6 +6,7 @@ import LoadingScreen from "../screens/LoadingScreen";
 import LoginScreen from "../screens/LoginScreen";
 import SignUpScreen from "../screens/SignUpScreen";
 import firebase from "firebase";
+import firebaseConfig from '../constants/firebaseConfig';
 
 firebase.initializeApp(firebaseConfig);
 export default createAppContainer(
