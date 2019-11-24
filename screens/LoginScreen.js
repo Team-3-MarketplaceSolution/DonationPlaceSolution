@@ -3,11 +3,26 @@ import { View, Text, TextInput, TouchableOpacity,StyleSheet} from 'react-native'
 
 
 //LOGIN CONTAINER
-class login extends Component{
+export default class LoginScreen extends React.Component{
+    state = { email: '', password: ''}
+    handleLogin = () => {
+        console.log('handleLogin')
+    }
     render() {
         return (
-            <View style={StyleSheet.container}>
-
+            <View style={styles.container}>
+                <Text>Login Screen</Text>
+                <TextInput
+                    style={styles.textInput}
+                    autoCapitalize="none"
+                    placeholder="Email"
+                />
+                <TextInput
+                    secureTextEntry
+                    style={styles.textInput}
+                    autoCapitalize="none"
+                    placeholder="Password"
+                />
             </View>
 
         );
@@ -22,4 +37,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#99ccff'
     },
+    textInput: {
+        height: 40,
+        width: '80%',
+        borderColor: 'gray',
+        borderWidth: 1,
+        marginTop: 8
+    }
 });
