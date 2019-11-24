@@ -58,11 +58,13 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
     },
     textInput: {
-        height: 40,
+        borderBottomColor: "#8A8F9E",
         width: '80%',
-        borderColor: 'gray',
-        borderWidth: 1,
-        marginTop: 8
+        borderBottomWidth: StyleSheet.hairlineWidth,
+        height: 40,
+        fontSize: 15,
+        color: "#161F3D",
+        marginTop: 10
     },
     signUpContainer:{
         flexDirection: "row",
@@ -75,7 +77,7 @@ const styles = StyleSheet.create({
         width: '80%',
         backgroundColor: Colors.buttonColor,
         borderRadius: 4,
-        height: 52,
+        height: 55,
         alignItems: "center",
         justifyContent: "center"
     }

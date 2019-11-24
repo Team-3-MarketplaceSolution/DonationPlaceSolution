@@ -11,6 +11,6 @@ export default {
   warningText: '#666804',
   noticeBackground: tintColor,
   noticeText: '#fff',
-  buttonColor: "#E7625F",
+  buttonColor: "#88CA5E",
   backgroundColor: '#F7BEC0',
 };
