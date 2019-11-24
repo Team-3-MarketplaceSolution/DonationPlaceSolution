@@ -9,11 +9,14 @@ import {createStackNavigator} from "react-navigation-stack";
 
 
 const AuthNavigator = createStackNavigator({
-    Login: LoginScreen,
+    Login: {
+        screen: LoginScreen,
+        navigationOptions: () =>({
+            header: null
+        })
+    },
     SignUp: SignUpScreen,
-    navigationOptions: () =>({
-        header:null
-    })
+
 });
 
 export default createAppContainer(

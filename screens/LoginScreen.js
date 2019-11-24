@@ -32,7 +32,7 @@ export default class LoginScreen extends React.Component{
                     onChangeText={password => this.setState({ password })}
                     value={this.state.password}
                 />
-                <Button title="Login" onPress={this.handleLogin} />
+                <Button title="LogIn" onPress={this.handleLogin} />
                 <View style={styles.signUpContainer}>
                 <Text >Don't have an account?</Text>
                 <Button
