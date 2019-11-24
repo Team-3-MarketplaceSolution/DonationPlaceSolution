@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { View, Text, TextInput, TouchableOpacity,StyleSheet, Button} from 'react-native';
 import StaticContainer from "react-native-web/src/vendor/react-native/StaticContainer";
 import * as firebase from "firebase";
+import Colors from "../constants/Colors";
 
 
 
@@ -32,7 +33,9 @@ export default class LoginScreen extends React.Component{
                     onChangeText={password => this.setState({ password })}
                     value={this.state.password}
                 />
-                <Button title="LogIn" onPress={this.handleLogin} />
+                <TouchableOpacity style = {styles.button} onPress={this.handleLogin} >
+                    <Text style={{ color: "#FFF", fontWeight: "500" }}>Sign In</Text>
+                </TouchableOpacity>
                 <View style={styles.signUpContainer}>
                 <Text >Don't have an account?</Text>
                 <Button
@@ -52,7 +55,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#99ccff'
+        backgroundColor: 'white',
     },
     textInput: {
         height: 40,
@@ -67,5 +70,14 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 20
     },
+    button: {
+        marginTop:20,
+        width: '80%',
+        backgroundColor: Colors.buttonColor,
+        borderRadius: 4,
+        height: 52,
+        alignItems: "center",
+        justifyContent: "center"
+    }
 
 });
