@@ -1,18 +1,22 @@
 import React, {Component} from 'react';
 import { View, Text, TextInput, TouchableOpacity,StyleSheet, Button} from 'react-native';
 import StaticContainer from "react-native-web/src/vendor/react-native/StaticContainer";
+import * as firebase from "firebase";
 
 
 
 //LOGIN CONTAINER
 export default class LoginScreen extends React.Component{
-    state = { email: '', password: ''}
+    state = { email: '', password: '', errorMessage: null}
     handleLogin = () => {
-        console.log("Login");
+        console.log(this.state.errorMessage);
+        const {email, password} = this.state;
+        firebase.auth().signInWithEmailAndPassword(email, password).catch(error => this.setState({errorMessage: error.message}));
     }
     render() {
         return (
             <View style={styles.container}>
+                <Text>{this.state.errorMessage}</Text>
                 <TextInput
                     style={styles.textInput}
                     autoCapitalize="none"

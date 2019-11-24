@@ -5,22 +5,30 @@ import MainTabNavigator from './MainTabNavigator';
 import LoadingScreen from "../screens/LoadingScreen";
 import LoginScreen from "../screens/LoginScreen";
 import SignUpScreen from "../screens/SignUpScreen";
-import firebase from "firebase";
-import firebaseConfig from '../constants/firebaseConfig';
+import {createStackNavigator} from "react-navigation-stack";
 
-firebase.initializeApp(firebaseConfig);
+
+const AuthNavigator = createStackNavigator({
+    Login: LoginScreen,
+    SignUp: SignUpScreen,
+    navigationOptions: () =>({
+        header:null
+    })
+});
+
 export default createAppContainer(
   createSwitchNavigator({
     // You could add another route here for authentication.
     // Read more at https://reactnavigation.org/docs/en/auth-flow.html
-    Main: MainTabNavigator,
+
     Loading: LoadingScreen,
-    Login: LoginScreen,
-    SignUp: SignUpScreen,
+    Main: MainTabNavigator,
+    Auth: AuthNavigator,
+
   },
       //Comment this out or change the initialRoutName to Main when u want to test the main page
       {
-          initialRouteName: 'Login',
+          initialRouteName: 'Loading',
       }
 
   )
