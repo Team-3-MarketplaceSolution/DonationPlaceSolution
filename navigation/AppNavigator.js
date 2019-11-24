@@ -5,7 +5,9 @@ import MainTabNavigator from './MainTabNavigator';
 import LoadingScreen from "../screens/LoadingScreen";
 import LoginScreen from "../screens/LoginScreen";
 import SignUpScreen from "../screens/SignUpScreen";
+import firebase from "firebase";
 
+firebase.initializeApp(firebaseConfig);
 export default createAppContainer(
   createSwitchNavigator({
     // You could add another route here for authentication.
