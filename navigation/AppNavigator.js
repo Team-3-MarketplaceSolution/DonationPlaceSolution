@@ -4,6 +4,7 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import MainTabNavigator from './MainTabNavigator';
 import LoadingScreen from "../screens/LoadingScreen";
 import LoginScreen from "../screens/LoginScreen";
+import SignUpScreen from "../screens/SignUpScreen";
 
 export default createAppContainer(
   createSwitchNavigator({
@@ -11,7 +12,8 @@ export default createAppContainer(
     // Read more at https://reactnavigation.org/docs/en/auth-flow.html
     Main: MainTabNavigator,
     Loading: LoadingScreen,
-          Login: LoginScreen,
+    Login: LoginScreen,
+    SignUp: SignUpScreen,
   },
       //Comment this out or change the initialRoutName to Main when u want to test the main page
       {

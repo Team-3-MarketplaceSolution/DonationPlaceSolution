@@ -8,7 +8,7 @@ import StaticContainer from "react-native-web/src/vendor/react-native/StaticCont
 export default class LoginScreen extends React.Component{
     state = { email: '', password: ''}
     handleLogin = () => {
-        console.log('handleLogin')
+        console.log("Login");
     }
     render() {
         return (
