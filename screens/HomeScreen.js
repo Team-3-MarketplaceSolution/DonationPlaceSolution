@@ -9,15 +9,19 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Button,
+  Alert,
 } from 'react-native';
 
 import { whileStatement } from '@babel/types';
 
 export default function HomeScreen() {
   return (
+   
     <View style={styles.container}>
       <ScrollView
         style={styles.container}
+        
         contentContainerStyle={styles.contentContainer}>
           <View style={styles.titleContainer}>
           
@@ -47,11 +51,13 @@ export default function HomeScreen() {
         
         <View style={styles.ActivityContainer}>
         <Text style={styles.ActivityListText}>
-            Activity 1  {"\n"}
-            Activity 2  {"\n"}
-            Activity 3  {"\n"}
-            Activity 4  {"\n"}
+          Activity 1 {'\n'}
+          Activity 2 {'\n'}
+          Activity 3 {'\n'}
+          Activity 4 {'\n'}
+          Activity 5 {'\n'}
           </Text>
+          
 
         </View>
 
@@ -64,28 +70,56 @@ export default function HomeScreen() {
           <Text style = {styles.itemsText}>
            You currently have [placeholder] item(s) ready to be donated.   {"\n"}
           </Text>
+          <Button style = {styles.itemsButton} // stylesheet fucked up
+          title="Add Items"
+          color=''
+          onPress={() => Alert.alert('The item has been added to your items.')}
+          />
         </View>
 
         <View style = {styles.organizationsTitleContainer}>
           <Text style = {styles.organizationsTitleText}>
-            Your Organizations
+            Organizations
           </Text>
 
         </View>
         <View style = {styles.organizationsContainer}>
           <Text style = {styles.organizationsText}>
-           these are your orgnizations: {"\n"}
+         </Text>
+          
+        
+        
+        <View style = {styles.organizationGallery}>
+          <Image
+            style={{ width: 100, height: 100, borderRadius: 100 / 2 }}
+            source={require('../assets/images/goodwill.jpg')}
+          />
+        
+          <Image
+            style={{ width: 100, height: 100, borderRadius: 100 / 2 }}
+            source={require('../assets/images/SalvationArmy.jpg')}
+          />
 
-          </Text>
+          
+          <Image
+            style={{ width: 100, height: 100, borderRadius: 100 / 2 }}
+            source={require('../assets/images/RedCross.png')}
+          />    
+            <Image
+            style={{ width: 100, height: 100, borderRadius: 100 / 2 }}
+            source={require('../assets/images/BigBrotherBigSister.png')}
+          />    
         </View>
 
 
+          <View style = {styles.organizationButton}>
+            <Button
+              title="Add Organization"
+              onPress={() => Alert.alert('The organization has been added to your organizations.')}/> 
+          </View>
+        </View>
 
-
-
-
-
-
+    
 
       </ScrollView>
 
@@ -114,7 +148,7 @@ const styles = StyleSheet.create({
   },
 
   contentContainer: {
-    paddingTop: 30,
+  
   },
   welcomeContainer: {
     alignItems: 'center',
@@ -196,6 +230,7 @@ const styles = StyleSheet.create({
 
   },
   titleContainer:{
+    paddingTop: 20,
     alignItems: 'center',
     backgroundColor: '#89cff0',
     borderRadius: 3,
@@ -238,6 +273,7 @@ const styles = StyleSheet.create({
 
   },
   organizationsTitleContainer:{
+    marginTop: 25,
     alignItems: 'center',
     backgroundColor: '#89cff0',
   },
@@ -248,7 +284,7 @@ const styles = StyleSheet.create({
   organizationsContainer:{
     marginTop: 25,
     marginBottom: 25,
-
+    paddingBottom: 50,
   },
   organizationsText:{
     marginTop: 10,
@@ -258,5 +294,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginHorizontal: 50,
 
+  },
+  itemsButton: {
+    marginHorizontal: 50,
+    color: 'black',
+  },
+  organizationGallery:{
+    alignItems: 'center',
+    paddingBottom: 10,
   },
 });
