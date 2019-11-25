@@ -11,7 +11,9 @@ import {
   View,
   Button,
   Alert,
+  ImageBackground,
 } from 'react-native';
+
 
 import { whileStatement } from '@babel/types';
 
@@ -20,6 +22,7 @@ export default function HomeScreen() {
    
     <View style={styles.container}>
       <ScrollView
+      
         style={styles.container}
         
         contentContainerStyle={styles.contentContainer}>
@@ -28,7 +31,6 @@ export default function HomeScreen() {
           <Text style={styles.titleText}>
             Donation Instructions
           </Text>
-
           </View>
 
         <View style={styles.howtoDonateContainer}>
@@ -68,9 +70,13 @@ export default function HomeScreen() {
         </View>
         <View style = {styles.itemsContainer}>
           <Text style = {styles.itemsText}>
-           You currently have [placeholder] item(s) ready to be donated.   {"\n"}
+           Item 1   {"\n"}
+           Item 2    {"\n"}
+           Item 3    {"\n"}
+           Item 4    {"\n"}
+           Item 5    {"\n"}
           </Text>
-          <Button style = {styles.itemsButton} // stylesheet fucked up
+          <Button
           title="Add Items"
           color=''
           onPress={() => Alert.alert('The item has been added to your items.')}
@@ -91,22 +97,22 @@ export default function HomeScreen() {
         
         <View style = {styles.organizationGallery}>
           <Image
-            style={{ width: 100, height: 100, borderRadius: 100 / 2 }}
+            style={{ width: 150, height: 150, borderRadius: 150 / 2, paddingBottom: 10}}
             source={require('../assets/images/goodwill.jpg')}
           />
         
           <Image
-            style={{ width: 100, height: 100, borderRadius: 100 / 2 }}
+            style={{width: 150, height: 150, borderRadius: 150 / 2, paddingBottom: 10}}
             source={require('../assets/images/SalvationArmy.jpg')}
           />
 
           
           <Image
-            style={{ width: 100, height: 100, borderRadius: 100 / 2 }}
+            style={{width: 150, height: 150, borderRadius: 150 / 2, paddingBottom: 10}}
             source={require('../assets/images/RedCross.png')}
           />    
             <Image
-            style={{ width: 100, height: 100, borderRadius: 100 / 2 }}
+            style={{ width: 150, height: 150, borderRadius: 150 / 2, paddingBottom: 10 }}
             source={require('../assets/images/BigBrotherBigSister.png')}
           />    
         </View>
@@ -124,6 +130,7 @@ export default function HomeScreen() {
       </ScrollView>
 
       <View style={styles.tabBarInfoContainer}>
+        
         <Text style={styles.tabBarInfoText}>
           Tab Bar (Placeholder)
         </Text>
@@ -144,7 +151,8 @@ HomeScreen.navigationOptions = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    //backgroundColor: '#fff',
+    
   },
 
   contentContainer: {
@@ -155,7 +163,9 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 20,
   },
+  
   welcomeImage: {
+    
     width: 100,
     height: 80,
     resizeMode: 'contain',
@@ -164,6 +174,8 @@ const styles = StyleSheet.create({
   },
 
   howtoDonateContainer: {
+    paddingTop: 200,
+    paddingBottom: 200,
     marginTop: 10,
     alignItems: 'center',
    
@@ -177,7 +189,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 4,
   },
   howtoDonateText: {
-  
+
     fontSize: 17,
     color: 'rgba(96,100,109, 1)',
     lineHeight: 24,
@@ -218,31 +230,37 @@ const styles = StyleSheet.create({
   ActivityTitleContainer: {
     marginTop: 25,
     alignItems: 'center',
-    backgroundColor: '#89cff0',
+    backgroundColor: 'black',
     borderRadius: 3,
     paddingHorizontal: 4,
 
   },
   ActivityTitleText: {
+    paddingTop: 20,
+    paddingBottom: 20,
     marginHorizontal: 50,
     color: 'white',
-    fontSize: 24,
+    fontSize: 32,
 
   },
   titleContainer:{
     paddingTop: 20,
     alignItems: 'center',
-    backgroundColor: '#89cff0',
+    backgroundColor: 'black',
     borderRadius: 3,
     paddingHorizontal: 4,
 
   },
   titleText:{
+    paddingTop: 20,
+    paddingBottom: 20,
     color: 'white',
-    fontSize: 24,
+    fontSize: 32,
 
   },
   ActivityContainer: {
+    paddingTop: 200,
+    paddingBottom: 200,
 
   },
   ActivityListText: {
@@ -255,15 +273,20 @@ const styles = StyleSheet.create({
 
   },
   ItemsTitleContainer:{
+
     alignItems: 'center',
-    backgroundColor: '#89cff0',
+    backgroundColor: 'black',
   },
   ItemsTitleText:{
+    paddingTop: 20,
+    paddingBottom: 20,
     color: 'white',
-    fontSize: 24,
+    fontSize: 32,
 
   },
   itemsText: {
+    paddingTop: 200,
+    paddingBottom: 200,
     marginTop: 10,
     fontSize: 17,
     color: 'rgba(96,100,109, 1)',
@@ -275,11 +298,13 @@ const styles = StyleSheet.create({
   organizationsTitleContainer:{
     marginTop: 25,
     alignItems: 'center',
-    backgroundColor: '#89cff0',
+    backgroundColor: 'black',
   },
   organizationsTitleText:{
+    paddingTop: 20,
+    paddingBottom: 20,
     color: 'white',
-    fontSize: 24,
+    fontSize: 32,
   },
   organizationsContainer:{
     marginTop: 25,
@@ -301,6 +326,7 @@ const styles = StyleSheet.create({
   },
   organizationGallery:{
     alignItems: 'center',
-    paddingBottom: 10,
+    paddingBottom: 20,
   },
+
 });
