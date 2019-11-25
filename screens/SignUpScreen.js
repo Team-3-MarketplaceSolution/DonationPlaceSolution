@@ -18,13 +18,29 @@ export default class SignUpScreen extends React.Component {
         errorMessage: null
     };
 
+    writeUserData=(uid,first_name,last_name)=>{
+        firebase.database().ref('Users/'+uid).set({
+            first_name: first_name,
+            last_name: last_name
+        }).then((data)=>{
+            //success callback
+            console.log('data ' , data)
+            console.log(first_name);
+        }).catch((error)=>{
+            //error callback
+            console.log('error ' , error)
+        })
+    }
+
     handleSignUp = () => {
         firebase
             .auth()
             .createUserWithEmailAndPassword(this.state.email, this.state.password)
             .then(userCredentials => {
+                console.log(userCredentials);
+                this.writeUserData(userCredentials.user.uid, this.state.first_name, this.state.last_name);
                 return userCredentials.user.updateProfile({
-                    displayName: this.state.name
+                    displayName: this.state.first_name
                 });
             })
             .catch(error => this.setState({ errorMessage: error.message }));
@@ -38,18 +54,17 @@ export default class SignUpScreen extends React.Component {
                             style={styles.textInput}
                             autoCapitalize="none"
                             placeholder="First Name"
-                            onChangeText={firstName => this.setState({ firstName })}
-                            value={this.state.firstName}
+                            onChangeText={first_name => this.setState({ first_name })}
+                            value={this.state.first_name}
                         />
 
                         <TextInput
                             style={styles.textInput}
                             autoCapitalize="none"
                             placeholder="Last Name"
-                            onChangeText={lastName => this.setState({ lastName })}
-                            value={this.state.lastName}
+                            onChangeText={last_name => this.setState({ last_name })}
+                            value={this.state.last_name}
                         />
-
 
                         <TextInput
                             style={styles.textInput}
