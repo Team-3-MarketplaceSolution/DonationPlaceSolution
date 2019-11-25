@@ -1,5 +1,6 @@
 import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
+
 import {
   Image,
   Platform,
@@ -10,7 +11,7 @@ import {
   View,
 } from 'react-native';
 
-import { MonoText } from '../components/StyledText';
+import { whileStatement } from '@babel/types';
 
 export default function HomeScreen() {
   return (
@@ -18,54 +19,87 @@ export default function HomeScreen() {
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.contentContainer}>
-        <View style={styles.welcomeContainer}>
-          <Image
-            source={
-              __DEV__
-                ? require('../assets/images/robot-dev.png')
-                : require('../assets/images/robot-prod.png')
-            }
-            style={styles.welcomeImage}
-          />
-        </View>
+          <View style={styles.titleContainer}>
+          
+          <Text style={styles.titleText}>
+            Donation Instructions
+          </Text>
 
-        <View style={styles.getStartedContainer}>
-          <DevelopmentModeNotice />
-
-          <Text style={styles.getStartedText}>Get started by opening</Text>
-
-          <View
-            style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-            <MonoText>screens/HomeScreen.js</MonoText>
           </View>
 
-          <Text style={styles.getStartedText}>
-            Change this text and your app will automatically reload.
+        <View style={styles.howtoDonateContainer}>
+          
+          <Text style={styles.howtoDonateText}>
+            To donate click on your desired organization, and select the
+            items you would like to send for donation.
+          </Text>
+
+          <View
+            style={[styles.codeHighlightContainer, styles.homeScreenFilename]}
+          />
+
+        </View>
+        <View style={styles.ActivityTitleContainer}>
+          <Text style={styles.ActivityTitleText}>
+            Activity Board
+          </Text>
+        </View>
+        
+        <View style={styles.ActivityContainer}>
+        <Text style={styles.ActivityListText}>
+            Activity 1  {"\n"}
+            Activity 2  {"\n"}
+            Activity 3  {"\n"}
+            Activity 4  {"\n"}
+          </Text>
+
+        </View>
+
+        <View style = {styles.ItemsTitleContainer}>
+          <Text style = {styles.ItemsTitleText}>
+            Items
+          </Text>
+        </View>
+        <View style = {styles.itemsContainer}>
+          <Text style = {styles.itemsText}>
+           You currently have [placeholder] item(s) ready to be donated.   {"\n"}
           </Text>
         </View>
 
-        <View style={styles.helpContainer}>
-          <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-            <Text style={styles.helpLinkText}>
-              Help, it didn’t automatically reload!
-            </Text>
-          </TouchableOpacity>
+        <View style = {styles.organizationsTitleContainer}>
+          <Text style = {styles.organizationsTitleText}>
+            Your Organizations
+          </Text>
+
         </View>
+        <View style = {styles.organizationsContainer}>
+          <Text style = {styles.organizationsText}>
+           these are your orgnizations: {"\n"}
+
+          </Text>
+        </View>
+
+
+
+
+
+
+
+
+
       </ScrollView>
 
       <View style={styles.tabBarInfoContainer}>
         <Text style={styles.tabBarInfoText}>
-          This is a tab bar. You can edit it in:
+          Tab Bar (Placeholder)
         </Text>
 
         <View
-          style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-          <MonoText style={styles.codeHighlightText}>
-            navigation/MainTabNavigator.js
-          </MonoText>
-        </View>
+          style={[styles.codeHighlightContainer, styles.navigationFilename]}
+        />
       </View>
     </View>
+  
   );
 }
 
@@ -73,53 +107,12 @@ HomeScreen.navigationOptions = {
   header: null,
 };
 
-function DevelopmentModeNotice() {
-  if (__DEV__) {
-    const learnMoreButton = (
-      <Text onPress={handleLearnMorePress} style={styles.helpLinkText}>
-        Learn more
-      </Text>
-    );
-
-    return (
-      <Text style={styles.developmentModeText}>
-        Development mode is enabled: your app will be slower but you can use
-        useful development tools. {learnMoreButton}
-      </Text>
-    );
-  } else {
-    return (
-      <Text style={styles.developmentModeText}>
-        You are not in development mode: your app will run at full speed.
-      </Text>
-    );
-  }
-}
-
-function handleLearnMorePress() {
-  WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/versions/latest/workflow/development-mode/'
-  );
-}
-
-function handleHelpPress() {
-  WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/versions/latest/workflow/up-and-running/#cant-see-your-changes'
-  );
-}
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
   },
-  developmentModeText: {
-    marginBottom: 20,
-    color: 'rgba(0,0,0,0.4)',
-    fontSize: 14,
-    lineHeight: 19,
-    textAlign: 'center',
-  },
+
   contentContainer: {
     paddingTop: 30,
   },
@@ -135,32 +128,36 @@ const styles = StyleSheet.create({
     marginTop: 3,
     marginLeft: -10,
   },
-  getStartedContainer: {
+
+  howtoDonateContainer: {
+    marginTop: 10,
     alignItems: 'center',
-    marginHorizontal: 50,
+   
   },
   homeScreenFilename: {
     marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
   },
   codeHighlightContainer: {
     backgroundColor: 'rgba(0,0,0,0.05)',
     borderRadius: 3,
     paddingHorizontal: 4,
   },
-  getStartedText: {
+  howtoDonateText: {
+  
     fontSize: 17,
     color: 'rgba(96,100,109, 1)',
     lineHeight: 24,
     textAlign: 'center',
+    marginHorizontal: 50,
+    marginTop: 25,
   },
   tabBarInfoContainer: {
     position: 'absolute',
     bottom: 0,
     left: 0,
     right: 0,
+    backgroundColor: '#89f0de',
+  
     ...Platform.select({
       ios: {
         shadowColor: 'black',
@@ -184,15 +181,82 @@ const styles = StyleSheet.create({
   navigationFilename: {
     marginTop: 5,
   },
-  helpContainer: {
-    marginTop: 15,
+  ActivityTitleContainer: {
+    marginTop: 25,
     alignItems: 'center',
+    backgroundColor: '#89cff0',
+    borderRadius: 3,
+    paddingHorizontal: 4,
+
   },
-  helpLink: {
-    paddingVertical: 15,
+  ActivityTitleText: {
+    marginHorizontal: 50,
+    color: 'white',
+    fontSize: 24,
+
   },
-  helpLinkText: {
-    fontSize: 14,
-    color: '#2e78b7',
+  titleContainer:{
+    alignItems: 'center',
+    backgroundColor: '#89cff0',
+    borderRadius: 3,
+    paddingHorizontal: 4,
+
+  },
+  titleText:{
+    color: 'white',
+    fontSize: 24,
+
+  },
+  ActivityContainer: {
+
+  },
+  ActivityListText: {
+    marginTop: 10,
+    fontSize: 17,
+    color: 'rgba(96,100,109, 1)',
+    lineHeight: 24,
+    textAlign: 'center',
+    marginHorizontal: 50,
+
+  },
+  ItemsTitleContainer:{
+    alignItems: 'center',
+    backgroundColor: '#89cff0',
+  },
+  ItemsTitleText:{
+    color: 'white',
+    fontSize: 24,
+
+  },
+  itemsText: {
+    marginTop: 10,
+    fontSize: 17,
+    color: 'rgba(96,100,109, 1)',
+    lineHeight: 24,
+    textAlign: 'center',
+    marginHorizontal: 50,
+
+  },
+  organizationsTitleContainer:{
+    alignItems: 'center',
+    backgroundColor: '#89cff0',
+  },
+  organizationsTitleText:{
+    color: 'white',
+    fontSize: 24,
+  },
+  organizationsContainer:{
+    marginTop: 25,
+    marginBottom: 25,
+
+  },
+  organizationsText:{
+    marginTop: 10,
+    fontSize: 17,
+    color: 'rgba(96,100,109, 1)',
+    lineHeight: 24,
+    textAlign: 'center',
+    marginHorizontal: 50,
+
   },
 });
