@@ -56,8 +56,6 @@ export default function HomeScreen() {
 
 
         <View style={[styles.box, styles.box2]}>
-
-
           <View style={styles.ActivityTitleContainer}>
             <Text style={styles.ActivityTitleText}>
               Activity Board
@@ -72,13 +70,12 @@ export default function HomeScreen() {
               Activity 4 {'\n'}
               Activity 5 {'\n'}
             </Text>
-
-
           </View>
         </View>
+        
+        {/*  ### NOT IMPLEMENTING THIS SECTION UNTIL NEXT SEMESTER! ### 
 
         <View style={[styles.box, styles.box3]}>
-
           <View style={styles.ItemsTitleContainer}>
             <Text style={styles.ItemsTitleText}>
               Items
@@ -99,7 +96,7 @@ export default function HomeScreen() {
             />
           </View>
         </View>
-
+        */}
 
         <View style={[styles.box, styles.box4]}>
 
@@ -113,18 +110,11 @@ export default function HomeScreen() {
             <Text style={styles.organizationsText}>
               Donationplace Solution is a one stop shop to donate and get tax benefits.
          </Text>
-
-
-
             <View style={styles.organizationGallery}>
             </View>
-
-
             <View style={styles.organizationButton}>
             </View>
           </View>
-
-
         </View>
 
 
@@ -181,7 +171,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 50,
     marginTop: 10,
     marginBottom: 10,
-    
+
   },
   tabBarInfoContainer: {
     position: 'absolute',
@@ -297,7 +287,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 50,
     marginTop: 10,
     marginBottom: 10,
-    
+
 
   },
   itemsButton: {
@@ -312,7 +302,7 @@ const styles = StyleSheet.create({
   },
   box1: {
     backgroundColor: '#fff'
-    
+
   },
   box2: {
     backgroundColor: '#fff'
