@@ -5,8 +5,8 @@ import Colors from "../constants/Colors";
 
 export default class SignUpScreen extends React.Component {
     state = {
-        first_name: "",
-        last_name:"",
+        first_name: '',
+        last_name:'',
         email: "",
         password: "",
         phone: '',
@@ -19,29 +19,36 @@ export default class SignUpScreen extends React.Component {
     };
 
     writeUserData=(uid,email, first_name,last_name)=>{
-        firebase.database().ref('Users/'+uid).set({
-            email: email,
-            first_name: first_name,
-            last_name: last_name
-        }).then((data)=>{
-            //success callback
-            console.log('data ' , data)
-            console.log(first_name);
-        }).catch(error => this.setState({errorMessage: error.message}))
+        
+            firebase.database().ref('Users/'+uid).set({
+                email: email,
+                first_name: first_name,
+                last_name: last_name
+            }).then((data)=>{
+                //success callback
+                console.log('data ' , data)
+                console.log(first_name);
+            }).catch(error => this.setState({errorMessage: error.message}))
     }
 
     handleSignUp = () => {
-        firebase
-            .auth()
-            .createUserWithEmailAndPassword(this.state.email, this.state.password)
-            .then(userCredentials => {
-                console.log(userCredentials);
-                this.writeUserData(userCredentials.user.uid, this.state.email, this.state.first_name, this.state.last_name);
-                return userCredentials.user.updateProfile({
-                    displayName: this.state.first_name
-                });
-            })
-            .catch(error => this.setState({ errorMessage: error.message }));
+        if(this.state.first_name.trim() === ''){
+            this.setState({errorMessage: 'Please fill in First Name!'});
+        }else if(this.state.last_name.trim() === ''){
+            this.setState({errorMessage: 'Please fill in Last Name!'});
+        }else {
+            firebase
+                .auth()
+                .createUserWithEmailAndPassword(this.state.email, this.state.password)
+                .then(userCredentials => {
+                    console.log(userCredentials);
+                    this.writeUserData(userCredentials.user.uid, this.state.email, this.state.first_name, this.state.last_name);
+                    return userCredentials.user.updateProfile({
+                        displayName: this.state.first_name
+                    });
+                })
+                .catch(error => this.setState({errorMessage: error.message}));
+        }
     };
 
 
