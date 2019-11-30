@@ -18,18 +18,16 @@ export default class SignUpScreen extends React.Component {
         errorMessage: null
     };
 
-    writeUserData=(uid,first_name,last_name)=>{
+    writeUserData=(uid,email, first_name,last_name)=>{
         firebase.database().ref('Users/'+uid).set({
+            email: email,
             first_name: first_name,
             last_name: last_name
         }).then((data)=>{
             //success callback
             console.log('data ' , data)
             console.log(first_name);
-        }).catch((error)=>{
-            //error callback
-            console.log('error ' , error)
-        })
+        }).catch(error => this.setState({errorMessage: error.message}))
     }
 
     handleSignUp = () => {
@@ -38,7 +36,7 @@ export default class SignUpScreen extends React.Component {
             .createUserWithEmailAndPassword(this.state.email, this.state.password)
             .then(userCredentials => {
                 console.log(userCredentials);
-                this.writeUserData(userCredentials.user.uid, this.state.first_name, this.state.last_name);
+                this.writeUserData(userCredentials.user.uid, this.state.email, this.state.first_name, this.state.last_name);
                 return userCredentials.user.updateProfile({
                     displayName: this.state.first_name
                 });
@@ -50,38 +48,40 @@ export default class SignUpScreen extends React.Component {
     render(){
         return (
             <View style={styles.container}>
-                        <TextInput
-                            style={styles.textInput}
-                            autoCapitalize="none"
-                            placeholder="First Name"
-                            onChangeText={first_name => this.setState({ first_name })}
-                            value={this.state.first_name}
-                        />
+                <Text>{this.state.errorMessage}</Text>
 
-                        <TextInput
-                            style={styles.textInput}
-                            autoCapitalize="none"
-                            placeholder="Last Name"
-                            onChangeText={last_name => this.setState({ last_name })}
-                            value={this.state.last_name}
-                        />
+                    <TextInput
+                        style={styles.textInput}
+                        autoCapitalize="none"
+                        placeholder="First Name"
+                        onChangeText={first_name => this.setState({ first_name })}
+                        value={this.state.first_name}
+                    />
 
-                        <TextInput
-                            style={styles.textInput}
-                            autoCapitalize="none"
-                            placeholder="Email"
-                            onChangeText={email => this.setState({ email })}
-                            value={this.state.email}
-                        />
+                    <TextInput
+                        style={styles.textInput}
+                        autoCapitalize="none"
+                        placeholder="Last Name"
+                        onChangeText={last_name => this.setState({ last_name })}
+                        value={this.state.last_name}
+                    />
 
-                        <TextInput
-                            style={styles.textInput}
-                            secureTextEntry
-                            autoCapitalize="none"
-                            placeholder="Password"
-                            onChangeText={password => this.setState({ password })}
-                            value={this.state.password}
-                        />
+                    <TextInput
+                        style={styles.textInput}
+                        autoCapitalize="none"
+                        placeholder="Email"
+                        onChangeText={email => this.setState({ email })}
+                        value={this.state.email}
+                    />
+
+                    <TextInput
+                        style={styles.textInput}
+                        secureTextEntry
+                        autoCapitalize="none"
+                        placeholder="Password"
+                        onChangeText={password => this.setState({ password })}
+                        value={this.state.password}
+                    />
 
                 <TouchableOpacity style = {styles.button} onPress={this.handleSignUp} >
                     <Text style={{ color: "#FFF", fontWeight: "500" }}>Sign Up</Text>
