@@ -9,6 +9,8 @@ expo
 
 To run application: 
 type expo start in terminal once you are in the project's directory.
+*NOTE* 
+Please use VSCode, it is the most steamlined way to geth this software up and running.
 
 How to get the application running: 
 
@@ -37,7 +39,7 @@ How to get the application running:
     \node_modules\metro-config\src\defaults\blacklist.js
 
 
-
+(IF ON WINDOWS):
 
 6) edit blacklist.js > 
 
