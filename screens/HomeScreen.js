@@ -72,32 +72,6 @@ export default function HomeScreen() {
             </Text>
           </View>
         </View>
-        
-        {/*  ### NOT IMPLEMENTING THIS SECTION UNTIL NEXT SEMESTER! ### 
-
-        <View style={[styles.box, styles.box3]}>
-          <View style={styles.ItemsTitleContainer}>
-            <Text style={styles.ItemsTitleText}>
-              Items
-          </Text>
-          </View>
-          <View style={styles.itemsContainer}>
-            <Text style={styles.itemsText}>
-              Item 1   {"\n"}
-              Item 2    {"\n"}
-              Item 3    {"\n"}
-              Item 4    {"\n"}
-              Item 5    {"\n"}
-            </Text>
-            <Button
-              title="Add Items"
-              color=''
-              onPress={() => Alert.alert('The item has been added to your items.')}
-            />
-          </View>
-        </View>
-        */}
-
         <View style={[styles.box, styles.box4]}>
 
           <View style={styles.organizationsTitleContainer}>
