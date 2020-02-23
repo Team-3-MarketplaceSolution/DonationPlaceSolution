@@ -5,7 +5,7 @@ import * as firebase from "firebase";
 
 
 
-export default function SettingsScreen() {
+export default function ProfileScreen() {
 
     return (
         <View>
@@ -14,6 +14,6 @@ export default function SettingsScreen() {
     );
 }
 
-SettingsScreen.navigationOptions = {
+ProfileScreen.navigationOptions = {
   title: 'LogOut',
 };
