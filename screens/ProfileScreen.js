@@ -8,21 +8,28 @@ import * as firebase from "firebase";
 export default class ProfileScreen extends React.Component {
     state = {
         email:"",
-        firstName: ""
+        displayName: "",
+        uid:"",
+        firstName:"",
+        lastName:""
     }
 
     componentDidMount() {
-        const {email, displayName} = firebase.auth().currentUser;
-        console.log(firebase.auth().currentUser);
-        this.setState({email,displayName});
+        const {email, displayName,uid} = firebase.auth().currentUser;
+        this.setState({email,displayName,uid});
+        firebase.database().ref('Users/'+uid).on('value',(data)=>{
+            console.log(data.toJSON().first_name)
+            this.setState({firstName:data.toJSON().first_name, lastName: data.toJSON().last_name});
+        })
+
     }
 
     render() {
         return (
 
             <View style = {style.container}>
-                <Text>Hi {this.state.displayName}!</Text>
-                <Text>Hi {this.state.email}!</Text>
+                <Text>Hi {this.state.firstName} {this.state.lastName} !</Text>
+                <Text>Email: {this.state.email}!</Text>
                 <Button title="LogOut" onPress={() => firebase.auth().signOut()}/>
             </View>
         );
