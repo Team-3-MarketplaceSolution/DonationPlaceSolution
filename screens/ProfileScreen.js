@@ -35,9 +35,8 @@ export default class ProfileScreen extends React.Component {
             <View style = {style.container}>
                 <Text style = {style.header}>Hi {this.state.firstName} {this.state.lastName} !</Text>
                 <Text style = {style.emailText}>Email: {this.state.email}</Text>
-                <Text>Address: </Text>
                 <TouchableOpacity style={style.profilePageButton} title="LogOut" onPress={this.onEditProfileButtonClicked}>
-                    <Text style={{  }}>Edit Profile</Text>
+                    <Text style={{ color: "#FFF", fontWeight: "500" }}>Edit Profile</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={style.profilePageButton} title="LogOut" onPress={() => firebase.auth().signOut()}>
                     <Text style={{ color: "#FFF", fontWeight: "500" }}>Sign Out</Text>

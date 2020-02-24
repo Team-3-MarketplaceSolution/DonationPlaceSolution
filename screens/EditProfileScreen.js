@@ -5,6 +5,7 @@ import Colors from "../constants/Colors";
 
 export default class SignUpScreen extends React.Component {
     state = {
+        uid:"",
         first_name: '',
         last_name:'',
         street1: '',
@@ -15,24 +16,54 @@ export default class SignUpScreen extends React.Component {
         errorMessage: null
     };
 
+    writeUserData = () =>{
+        console.log(this.uid);
+        firebase.database().ref('Users/'+this.state.uid).set(
+            {
+                first_name: this.state.first_name,
+                last_name:this.state.last_name,
+                street1: this.state.street1,
+                street2: this.state.street2,
+                city: this.state.city,
+                state: this.state.state,
+                zip: this.state.zip,
+            }
+        ).then((data)=>{
+            console.log('data ' , data)
+        }).catch(error => this.setState({errorMessage: error.message}))
+    }
+
+    handleUpdate = () =>{
+        if(this.state.first_name.trim() === ''){
+            this.setState({errorMessage: 'Please fill in First Name!'});
+        }else if(this.state.last_name.trim() === ''){
+            this.setState({errorMessage: 'Please fill in Last Name!'});
+        }else {
+            this.writeUserData();
+        }
+    }
+
 
     componentDidMount() {
         const uid = this.props.navigation.getParam('uid');
         console.log(uid);
+        this.setState({uid: uid});
         firebase.database().ref('Users/'+uid).on('value',(data)=>{
-            this.setState(data.toJSON());});
+            console.log(data.toJSON());
+            this.setState(data.toJSON());
+        });
+        console.log(this.state);
     }
 
     render() {
         return (
             <View style={styles.container}>
                 <Text>{this.state.errorMessage}</Text>
-
                 <TextInput
                     style={styles.textInput}
                     autoCapitalize="none"
                     placeholder="First Name"
-                    onChangeText={first_name => this.setState({first_name})}
+                    onChangeText={first_name => this.setState( {first_name})}
                     value={this.state.first_name}
                 />
 
@@ -47,16 +78,9 @@ export default class SignUpScreen extends React.Component {
                 <TextInput
                     style={styles.textInput}
                     autoCapitalize="none"
-                    placeholder="Address"
+                    placeholder="Street1"
                     onChangeText={street1 => this.setState({street1})}
                     value={this.state.password}
-                />
-                <TextInput
-                    style={styles.textInput}
-                    autoCapitalize="none"
-                    placeholder="Street1"
-                    onChangeText={street2 => this.setState({street2})}
-                    value={this.state.street1}
                 />
                 <TextInput
                     style={styles.textInput}
@@ -80,7 +104,7 @@ export default class SignUpScreen extends React.Component {
                     value={this.state.state}
                 />
 
-                <TouchableOpacity style={styles.button} onPress={this.handleSignUp}>
+                <TouchableOpacity style={styles.button} onPress={this.handleUpdate}>
                     <Text style={{color: "#FFF", fontWeight: "500"}}>Update</Text>
                 </TouchableOpacity>
             </View>
@@ -106,5 +130,18 @@ const styles = StyleSheet.create({
         height: 55,
         alignItems: "center",
         justifyContent: "center"
-    }
+    },
+
+    textInput: {
+        borderBottomColor: "#8A8F9E",
+        width: '80%',
+        borderBottomWidth: StyleSheet.hairlineWidth,
+        height: 40,
+        fontSize: 15,
+        color: "#161F3D",
+        marginTop: 10
+    },
+
+
+
 });
