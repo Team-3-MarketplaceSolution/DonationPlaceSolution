@@ -16,7 +16,9 @@ export default class ProfileScreen extends React.Component {
     }
 
     onEditProfileButtonClicked =()=>{
-        this.props.navigation.navigate('EditProfile')
+        this.props.navigation.navigate('EditProfile', {
+            uid: this.state.uid,
+        })
     }
 
     componentDidMount() {
@@ -26,18 +28,16 @@ export default class ProfileScreen extends React.Component {
             console.log(data.toJSON().first_name)
             this.setState({firstName:data.toJSON().first_name, lastName: data.toJSON().last_name});
         })
-
     }
 
     render() {
         return (
-
             <View style = {style.container}>
                 <Text style = {style.header}>Hi {this.state.firstName} {this.state.lastName} !</Text>
                 <Text style = {style.emailText}>Email: {this.state.email}</Text>
                 <Text>Address: </Text>
                 <TouchableOpacity style={style.profilePageButton} title="LogOut" onPress={this.onEditProfileButtonClicked}>
-                    <Text style={{ color: "#FFF", fontWeight: "500" }}>Edit Profile</Text>
+                    <Text style={{  }}>Edit Profile</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={style.profilePageButton} title="LogOut" onPress={() => firebase.auth().signOut()}>
                     <Text style={{ color: "#FFF", fontWeight: "500" }}>Sign Out</Text>
