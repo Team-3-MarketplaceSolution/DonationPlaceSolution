@@ -20,9 +20,9 @@ export default class ProfileScreen extends React.Component {
     render() {
         return (
 
-            <View>
-                <Text>Hi {this.state.email}!</Text>
+            <View style = {style.container}>
                 <Text>Hi {this.state.displayName}!</Text>
+                <Text>Hi {this.state.email}!</Text>
                 <Button title="LogOut" onPress={() => firebase.auth().signOut()}/>
             </View>
         );
@@ -32,5 +32,13 @@ export default class ProfileScreen extends React.Component {
 
 
 ProfileScreen.navigationOptions = {
-  title: 'LogOut',
+  title: 'Profile',
 };
+
+const style =  StyleSheet.create({
+    container: {
+        flex:1,
+        justifyContent: "center",
+        alignItems: "center"
+    }
+})
