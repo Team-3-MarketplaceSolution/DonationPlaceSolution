@@ -18,7 +18,7 @@ export default class SignUpScreen extends React.Component {
 
     writeUserData = () =>{
         console.log(this.uid);
-        firebase.database().ref('Users/'+this.state.uid).set(
+        firebase.database().ref('Users/'+this.state.uid).update(
             {
                 first_name: this.state.first_name,
                 last_name:this.state.last_name,
@@ -80,7 +80,7 @@ export default class SignUpScreen extends React.Component {
                     autoCapitalize="none"
                     placeholder="Street1"
                     onChangeText={street1 => this.setState({street1})}
-                    value={this.state.password}
+                    value={this.state.street1}
                 />
                 <TextInput
                     style={styles.textInput}
