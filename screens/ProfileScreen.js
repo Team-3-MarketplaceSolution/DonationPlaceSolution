@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { ExpoConfigView } from '@expo/samples';
 import { View, Text, TextInput, TouchableOpacity,StyleSheet, Button} from 'react-native';
 import * as firebase from "firebase";
+import Colors from "../constants/Colors";
 
 
 
@@ -12,6 +13,10 @@ export default class ProfileScreen extends React.Component {
         uid:"",
         firstName:"",
         lastName:""
+    }
+
+    onEditProfileButtonClicked =()=>{
+        this.props.navigation.navigate('EditProfile')
     }
 
     componentDidMount() {
@@ -28,9 +33,15 @@ export default class ProfileScreen extends React.Component {
         return (
 
             <View style = {style.container}>
-                <Text>Hi {this.state.firstName} {this.state.lastName} !</Text>
-                <Text>Email: {this.state.email}!</Text>
-                <Button title="LogOut" onPress={() => firebase.auth().signOut()}/>
+                <Text style = {style.header}>Hi {this.state.firstName} {this.state.lastName} !</Text>
+                <Text style = {style.emailText}>Email: {this.state.email}</Text>
+                <Text>Address: </Text>
+                <TouchableOpacity style={style.profilePageButton} title="LogOut" onPress={this.onEditProfileButtonClicked}>
+                    <Text style={{ color: "#FFF", fontWeight: "500" }}>Edit Profile</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={style.profilePageButton} title="LogOut" onPress={() => firebase.auth().signOut()}>
+                    <Text style={{ color: "#FFF", fontWeight: "500" }}>Sign Out</Text>
+                </TouchableOpacity>
             </View>
         );
     }
@@ -47,5 +58,23 @@ const style =  StyleSheet.create({
         flex:1,
         justifyContent: "center",
         alignItems: "center"
-    }
+    },
+    header:{
+        marginTop:15,
+        fontWeight: "500",
+        fontSize: 20
+    },
+    emailText:{
+        marginTop:15,
+    },
+    profilePageButton:{
+        marginTop:"auto",
+        marginBottom:15,
+        width: '80%',
+        backgroundColor: Colors.buttonColor,
+        borderRadius: 4,
+        height: 55,
+        alignItems: "center",
+        justifyContent: "center"
+}
 })

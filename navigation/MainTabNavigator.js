@@ -6,6 +6,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import EditProfileScreen from "../screens/EditProfileScreen";
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -54,6 +55,8 @@ LinksStack.path = '';
 const ProfileStack = createStackNavigator(
   {
     Profile: ProfileScreen,
+    EditProfile: EditProfileScreen,
+
   },
   config
 );
