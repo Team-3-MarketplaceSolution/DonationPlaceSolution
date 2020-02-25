@@ -1,290 +1,340 @@
-import * as WebBrowser from 'expo-web-browser';
-import React from 'react';
-
+import * as WebBrowser from "expo-web-browser";
+import React from "react";
+import { AppLoading } from "expo";
+import { Image } from "react-native";
 import {
-
-  Platform,
-  ScrollView,
-  StyleSheet,
+  Container,
+  List,
+  Content,
+  ListItem,
+  Card,
+  CardItem,
+  Thumbnail,
   Text,
-  View,
   Button,
-  Alert,
-  Dimensions,
+  Icon,
+  Left,
+  Body,
+  Right
+} from "native-base";
+import * as Font from "expo-font";
+import { Ionicons } from "@expo/vector-icons";
 
-} from 'react-native';
+export default class HomeScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isReady: false
+    };
+  }
 
-import Swiper from "react-native-web-swiper";
+  async componentDidMount() {
+    await Font.loadAsync({
+      Roboto: require("../node_modules/native-base/Fonts/Roboto.ttf"),
+      Roboto_medium: require("../node_modules/native-base/Fonts/Roboto_medium.ttf"),
+      ...Ionicons.font
+    });
+    this.setState({ isReady: true });
+  }
 
-var { height } = Dimensions.get('window');
-var box_count = 3;
-var box_height = height / box_count;
-
-export default function HomeScreen() {
-  return (
-
-    <View style={styles.container}>
-      <ScrollView
-
-        style={styles.container}
-
-        contentContainerStyle={styles.contentContainer}>
-
-        <View style={[styles.box, styles.box1]}>
-
-
-
-          <View style={styles.titleContainer}>
-
-            <Text style={styles.titleText}>
-              Donation Instructions
-          </Text>
-          </View>
-
-          <View style={styles.howtoDonateContainer}>
-
-            <Text style={styles.howtoDonateText}>
-              To donate click on your desired organization, and select the
-              items you would like to send for donation.
-          </Text>
-
-            <View
-              style={[styles.codeHighlightContainer, styles.homeScreenFilename]}
-            />
-          </View>
-        </View>
-
-
-        <View style={[styles.box, styles.box2]}>
-          <View style={styles.ActivityTitleContainer}>
-            <Text style={styles.ActivityTitleText}>
-              Activity Board
-          </Text>
-          </View>
-
-          <View style={styles.ActivityContainer}>
-            <Text style={styles.ActivityListText}>
-              Activity 1 {'\n'}
-              Activity 2 {'\n'}
-              Activity 3 {'\n'}
-              Activity 4 {'\n'}
-              Activity 5 {'\n'}
-            </Text>
-          </View>
-        </View>
-        <View style={[styles.box, styles.box4]}>
-
-          <View style={styles.organizationsTitleContainer}>
-            <Text style={styles.organizationsTitleText}>
-              Organization Description
-          </Text>
-
-          </View>
-          <View style={styles.organizationsContainer}>
-            <Text style={styles.organizationsText}>
-              Donationplace Solution is a one stop shop to donate and get tax benefits.
-         </Text>
-            <View style={styles.organizationGallery}>
-            </View>
-            <View style={styles.organizationButton}>
-            </View>
-          </View>
-        </View>
-
-
-        <View style={styles.tabBarInfoContainer}>
-
-          <Text style={styles.tabBarInfoText}>
-            Tab Bar (Placeholder)
-        </Text>
-
-          <View
-            style={[styles.codeHighlightContainer, styles.navigationFilename]}
-          />
-        </View>
-      </ScrollView>
-    </View>
-
-
-  );
+  render() {
+    if (!this.state.isReady) {
+      return <AppLoading />;
+    }
+    return (
+      <Container>
+        <Content>
+          <Card>
+            <CardItem>
+              <Body>
+                <Text>
+                  Instruction content. step 1: step 2: step 3: step 4:
+                </Text>
+              </Body>
+            </CardItem>
+          </Card>
+          <Card>
+            <CardItem header bordered>
+              <Text>Activities</Text>
+            </CardItem>
+            <CardItem>
+              <Left>
+                <Thumbnail
+                  source={{
+                    uri:
+                      "https://getuikit.com/v2/docs/images/placeholder_600x400.svg"
+                  }}
+                />
+                <Body>
+                  <Text>Activity 1</Text>
+                  <Text note>Note 1</Text>
+                </Body>
+              </Left>
+            </CardItem>
+            <CardItem cardBody>
+              <Image
+                source={{
+                  uri:
+                    "https://irishhostfamily.ie/wp-content/uploads/2017/05/group-of-kids-Irish-Host-Family.jpg"
+                }}
+                style={{ height: 300, width: null, flex: 1 }}
+              />
+            </CardItem>
+            <CardItem>
+              <Left>
+                <Button transparent>
+                  <Icon active name="thumbs-up" />
+                  <Text>12 Likes</Text>
+                </Button>
+              </Left>
+              <Body>
+                <Button transparent>
+                  <Icon active name="chatbubbles" />
+                  <Text>4 Comments</Text>
+                </Button>
+              </Body>
+              <Right>
+                <Text>11h ago</Text>
+              </Right>
+            </CardItem>
+          </Card>
+          <Card>
+            <CardItem>
+              <Left>
+                <Thumbnail
+                  source={{
+                    uri:
+                      "https://getuikit.com/v2/docs/images/placeholder_600x400.svg"
+                  }}
+                />
+                <Body>
+                  <Text>Activity 2</Text>
+                  <Text note>Note 2</Text>
+                </Body>
+              </Left>
+            </CardItem>
+            <CardItem cardBody>
+              <Image
+                source={{
+                  uri:
+                    "https://irishhostfamily.ie/wp-content/uploads/2017/05/group-of-kids-Irish-Host-Family.jpg"
+                }}
+                style={{ height: 300, width: null, flex: 1 }}
+              />
+            </CardItem>
+            <CardItem>
+              <Left>
+                <Button transparent>
+                  <Icon active name="thumbs-up" />
+                  <Text>12 Likes</Text>
+                </Button>
+              </Left>
+              <Body>
+                <Button transparent>
+                  <Icon active name="chatbubbles" />
+                  <Text>4 Comments</Text>
+                </Button>
+              </Body>
+              <Right>
+                <Text>11h ago</Text>
+              </Right>
+            </CardItem>
+          </Card>
+          <Card>
+            <CardItem>
+              <Left>
+                <Thumbnail
+                  source={{
+                    uri:
+                      "https://getuikit.com/v2/docs/images/placeholder_600x400.svg"
+                  }}
+                />
+                <Body>
+                  <Text>Activity 3</Text>
+                  <Text note>Note 3</Text>
+                </Body>
+              </Left>
+            </CardItem>
+            <CardItem cardBody>
+              <Image
+                source={{
+                  uri:
+                    "https://irishhostfamily.ie/wp-content/uploads/2017/05/group-of-kids-Irish-Host-Family.jpg"
+                }}
+                style={{ height: 300, width: null, flex: 1 }}
+              />
+            </CardItem>
+            <CardItem>
+              <Left>
+                <Button transparent>
+                  <Icon active name="thumbs-up" />
+                  <Text>12 Likes</Text>
+                </Button>
+              </Left>
+              <Body>
+                <Button transparent>
+                  <Icon active name="chatbubbles" />
+                  <Text>4 Comments</Text>
+                </Button>
+              </Body>
+              <Right>
+                <Text>11h ago</Text>
+              </Right>
+            </CardItem>
+          </Card>
+          <Card>
+            <CardItem>
+              <Left>
+                <Thumbnail
+                  source={{
+                    uri:
+                      "https://getuikit.com/v2/docs/images/placeholder_600x400.svg"
+                  }}
+                />
+                <Body>
+                  <Text>Activity 4</Text>
+                  <Text note>Note 4</Text>
+                </Body>
+              </Left>
+            </CardItem>
+            <CardItem cardBody>
+              <Image
+                source={{
+                  uri:
+                    "https://irishhostfamily.ie/wp-content/uploads/2017/05/group-of-kids-Irish-Host-Family.jpg"
+                }}
+                style={{ height: 300, width: null, flex: 1 }}
+              />
+            </CardItem>
+            <CardItem>
+              <Left>
+                <Button transparent>
+                  <Icon active name="thumbs-up" />
+                  <Text>12 Likes</Text>
+                </Button>
+              </Left>
+              <Body>
+                <Button transparent>
+                  <Icon active name="chatbubbles" />
+                  <Text>4 Comments</Text>
+                </Button>
+              </Body>
+              <Right>
+                <Text>11h ago</Text>
+              </Right>
+            </CardItem>
+          </Card>
+          <Card>
+            <CardItem>
+              <Left>
+                <Thumbnail
+                  source={{
+                    uri:
+                      "https://getuikit.com/v2/docs/images/placeholder_600x400.svg"
+                  }}
+                />
+                <Body>
+                  <Text>Activity 5</Text>
+                  <Text note>Note 5</Text>
+                </Body>
+              </Left>
+            </CardItem>
+            <CardItem cardBody>
+              <Image
+                source={{
+                  uri:
+                    "https://irishhostfamily.ie/wp-content/uploads/2017/05/group-of-kids-Irish-Host-Family.jpg"
+                }}
+                style={{ height: 300, width: null, flex: 1 }}
+              />
+            </CardItem>
+            <CardItem>
+              <Left>
+                <Button transparent>
+                  <Icon active name="thumbs-up" />
+                  <Text>12 Likes</Text>
+                </Button>
+              </Left>
+              <Body>
+                <Button transparent>
+                  <Icon active name="chatbubbles" />
+                  <Text>4 Comments</Text>
+                </Button>
+              </Body>
+              <Right>
+                <Text>11h ago</Text>
+              </Right>
+            </CardItem>
+          </Card>
+          <Card>
+            <CardItem>
+              <Left>
+                <Thumbnail
+                  source={{
+                    uri:
+                      "https://getuikit.com/v2/docs/images/placeholder_600x400.svg"
+                  }}
+                />
+                <Body>
+                  <Text>Activity 6</Text>
+                  <Text note>Note </Text>
+                </Body>
+              </Left>
+            </CardItem>
+            <CardItem cardBody>
+              <Image
+                source={{
+                  uri:
+                    "https://irishhostfamily.ie/wp-content/uploads/2017/05/group-of-kids-Irish-Host-Family.jpg"
+                }}
+                style={{ height: 300, width: null, flex: 1 }}
+              />
+            </CardItem>
+            <CardItem>
+              <Left>
+                <Button transparent>
+                  <Icon active name="thumbs-up" />
+                  <Text>12 Likes</Text>
+                </Button>
+              </Left>
+              <Body>
+                <Button transparent>
+                  <Icon active name="chatbubbles" />
+                  <Text>4 Comments</Text>
+                </Button>
+              </Body>
+              <Right>
+                <Text>11h ago</Text>
+              </Right>
+            </CardItem>
+          </Card>
+          <Card style={{ flex: 0 }}>
+            <CardItem header bordered>
+              <Text>Organization description</Text>
+            </CardItem>
+            <CardItem>
+              <Body>
+                <Image
+                  source={{
+                    uri:
+                      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto/gigs/1724448/original/big_Logo_Design_307_n9e06f0Se/design-your-company-logo-in-english-and-arabic.jpg"
+                  }}
+                  style={{ height: 200, width: 400, flex: 1 }}
+                />
+                <Text>//Your text here</Text>
+              </Body>
+            </CardItem>
+            <CardItem>
+              <Left>
+                <Button transparent textStyle={{ color: "#87838B" }}>
+                  <Icon name="logo-github" />
+                  <Text>1,926 stars</Text>
+                </Button>
+              </Left>
+            </CardItem>
+          </Card>
+        </Content>
+      </Container>
+    );
+  }
 }
-
-HomeScreen.navigationOptions = {
-  header: null,
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    //backgroundColor: '#fff',
-    flexDirection: 'column'
-
-  },
-
-  contentContainer: {
-
-  },
-  welcomeContainer: {
-    alignItems: 'center',
-
-  },
-
-
-  howtoDonateContainer: {
-
-    alignItems: 'center',
-
-  },
-
-  howtoDonateText: {
-
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
-    marginHorizontal: 50,
-    marginTop: 10,
-    marginBottom: 10,
-
-  },
-  tabBarInfoContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: '#89f0de',
-
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { width: 0, height: -3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-    alignItems: 'center',
-    backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
-  },
-  tabBarInfoText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    textAlign: 'center',
-  },
-  navigationFilename: {
-    marginTop: 5,
-  },
-  ActivityTitleContainer: {
-
-    alignItems: 'center',
-    backgroundColor: 'black',
-    borderRadius: 3,
-    paddingHorizontal: 4,
-
-  },
-  ActivityTitleText: {
-
-
-    color: 'white',
-    fontSize: 24,
-
-  },
-  titleContainer: {
-
-    alignItems: 'center',
-    backgroundColor: 'black',
-    borderRadius: 3,
-
-
-  },
-  titleText: {
-
-    color: 'white',
-    fontSize: 24,
-
-  },
-  ActivityContainer: {
-
-
-  },
-  ActivityListText: {
-    marginTop: 10,
-    marginBottom: 10,
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
-
-
-  },
-  ItemsTitleContainer: {
-
-    alignItems: 'center',
-    backgroundColor: 'black',
-  },
-  ItemsTitleText: {
-
-    color: 'white',
-    fontSize: 24,
-
-  },
-  itemsText: {
-    marginTop: 10,
-    marginBottom: 10,
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
-
-
-  },
-  organizationsTitleContainer: {
-
-    alignItems: 'center',
-    backgroundColor: 'black',
-  },
-  organizationsTitleText: {
-    color: 'white',
-    fontSize: 24,
-  },
-  organizationsContainer: {
-
-  },
-  organizationsText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
-    marginHorizontal: 50,
-    marginTop: 10,
-    marginBottom: 10,
-
-
-  },
-  itemsButton: {
-    marginHorizontal: 50,
-    color: 'black',
-  },
-  organizationGallery: {
-    alignItems: 'center',
-  },
-  box: {
-    height: box_height
-  },
-  box1: {
-    backgroundColor: '#fff'
-
-  },
-  box2: {
-    backgroundColor: '#fff'
-  },
-  box3: {
-    backgroundColor: '#fff'
-  },
-  box4: {
-    backgroundColor: '#fff'
-  },
-});
