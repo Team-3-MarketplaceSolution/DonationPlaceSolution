@@ -29,7 +29,7 @@ export default class SignUpScreen extends React.Component {
                 zip: this.state.zip,
             }
         ).then((data)=>{
-            console.log('data ' , data)
+            alert("Information Updated!");
         }).catch(error => this.setState({errorMessage: error.message}))
     }
 
@@ -100,8 +100,15 @@ export default class SignUpScreen extends React.Component {
                     style={styles.textInput}
                     autoCapitalize="none"
                     placeholder="State"
-                    onChangeText={city => this.setState({state})}
+                    onChangeText={state => this.setState({state})}
                     value={this.state.state}
+                />
+                <TextInput
+                    style={styles.textInput}
+                    autoCapitalize="none"
+                    placeholder="ZipCode"
+                    onChangeText={zip => this.setState({zip})}
+                    value={this.state.zip}
                 />
 
                 <TouchableOpacity style={styles.button} onPress={this.handleUpdate}>
