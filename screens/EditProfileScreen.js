@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import * as firebase from "firebase";
 import Colors from "../constants/Colors";
+import SubmitButton from "../components/SubmitButton";
 
 export default class SignUpScreen extends React.Component {
     state = {
@@ -29,7 +30,7 @@ export default class SignUpScreen extends React.Component {
                 zip: this.state.zip,
             }
         ).then((data)=>{
-            console.log('data ' , data)
+            alert("Information Updated!");
         }).catch(error => this.setState({errorMessage: error.message}))
     }
 
@@ -100,13 +101,17 @@ export default class SignUpScreen extends React.Component {
                     style={styles.textInput}
                     autoCapitalize="none"
                     placeholder="State"
-                    onChangeText={city => this.setState({state})}
+                    onChangeText={state => this.setState({state})}
                     value={this.state.state}
                 />
-
-                <TouchableOpacity style={styles.button} onPress={this.handleUpdate}>
-                    <Text style={{color: "#FFF", fontWeight: "500"}}>Update</Text>
-                </TouchableOpacity>
+                <TextInput
+                    style={styles.textInput}
+                    autoCapitalize="none"
+                    placeholder="ZipCode"
+                    onChangeText={zip => this.setState({zip})}
+                    value={this.state.zip}
+                />
+                <SubmitButton click = {this.handleUpdate}>Submit</SubmitButton>
             </View>
         );
     }
@@ -141,7 +146,5 @@ const styles = StyleSheet.create({
         color: "#161F3D",
         marginTop: 10
     },
-
-
 
 });
