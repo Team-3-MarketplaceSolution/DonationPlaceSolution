@@ -3,6 +3,7 @@ import { View, Text, TextInput, TouchableOpacity,StyleSheet, Button} from 'react
 import StaticContainer from "react-native-web/src/vendor/react-native/StaticContainer";
 import * as firebase from "firebase";
 import Colors from "../constants/Colors";
+import SubmitButton from "../components/SubmitButton";
 
 
 
@@ -33,9 +34,7 @@ export default class LoginScreen extends React.Component{
                     onChangeText={password => this.setState({ password })}
                     value={this.state.password}
                 />
-                <TouchableOpacity style = {styles.button} onPress={this.handleLogin} >
-                    <Text style={{ color: "#FFF", fontWeight: "500" }}>Sign In</Text>
-                </TouchableOpacity>
+                <SubmitButton click = {this.handleLogin}>Sign In</SubmitButton>
                 <View style={styles.signUpContainer}>
                 <Text >Don't have an account?</Text>
                 <Button
@@ -72,14 +71,4 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 20
     },
-    button: {
-        marginTop:20,
-        width: '80%',
-        backgroundColor: Colors.buttonColor,
-        borderRadius: 4,
-        height: 55,
-        alignItems: "center",
-        justifyContent: "center"
-    }
-
 });

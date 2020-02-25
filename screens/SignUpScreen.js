@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { View, Text, TextInput, TouchableOpacity,StyleSheet, Button} from 'react-native';
 import * as firebase from "firebase";
 import Colors from "../constants/Colors";
+import SubmitButton from "../components/SubmitButton";
 
 export default class SignUpScreen extends React.Component {
     state = {
@@ -90,9 +91,7 @@ export default class SignUpScreen extends React.Component {
                         value={this.state.password}
                     />
 
-                <TouchableOpacity style = {styles.button} onPress={this.handleSignUp} >
-                    <Text style={{ color: "#FFF", fontWeight: "500" }}>Sign Up</Text>
-                </TouchableOpacity>
+                <SubmitButton click = {this.handleSignUp}>Sign Up</SubmitButton>
             </View>
 
         );
@@ -115,15 +114,6 @@ export default class SignUpScreen extends React.Component {
                 color: "#161F3D",
                 marginTop: 10
             },
-                button: {
-                marginTop:20,
-                width:"80%",
-                backgroundColor: Colors.buttonColor,
-                borderRadius: 4,
-                height: 55,
-                alignItems: "center",
-                justifyContent: "center"
-            }
 
             });
 

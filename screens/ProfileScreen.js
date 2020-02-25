@@ -3,6 +3,7 @@ import { ExpoConfigView } from '@expo/samples';
 import { View, Text, TextInput, TouchableOpacity,StyleSheet, Button} from 'react-native';
 import * as firebase from "firebase";
 import Colors from "../constants/Colors";
+import SubmitButton from "../components/SubmitButton";
 
 
 
@@ -26,6 +27,9 @@ export default class ProfileScreen extends React.Component {
             uid: this.state.uid,
         })
     }
+    onSignOutButtonClicked =()=>{
+        firebase.auth().signOut();
+    }
 
     componentDidMount() {
         const {email, displayName,uid} = firebase.auth().currentUser;
@@ -47,12 +51,8 @@ export default class ProfileScreen extends React.Component {
                 <Text style = {style.emailText}>State: {this.state.state}</Text>
                 <Text style = {style.emailText}>ZipCode: {this.state.zip}</Text>
                 <View style={style.buttonContainer}>
-                    <TouchableOpacity style={style.profilePageButton} title="LogOut" onPress={this.onEditProfileButtonClicked}>
-                        <Text style={{ color: "#FFF", fontWeight: "500" }}>Edit Profile</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={style.profilePageButton} title="LogOut" onPress={() => firebase.auth().signOut()}>
-                        <Text style={{ color: "#FFF", fontWeight: "500" }}>Sign Out</Text>
-                    </TouchableOpacity>
+                    <SubmitButton click = {this.onEditProfileButtonClicked}>Edit Profile</SubmitButton>
+                    <SubmitButton click = {this.onSignOutButtonClicked}>Sign Out</SubmitButton>
                 </View>
             </View>
         );
@@ -85,13 +85,5 @@ const style =  StyleSheet.create({
         marginBottom:15,
         alignItems:'center',
     },
-    profilePageButton:{
-        marginTop: 10,
-        width: '80%',
-        backgroundColor: Colors.buttonColor,
-        borderRadius: 4,
-        height: 55,
-        alignItems: "center",
-        justifyContent: "center"
-}
+
 })
