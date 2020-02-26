@@ -48,7 +48,7 @@ export default class HomeScreen extends React.Component {
             <CardItem>
               <Body>
                 <Text>
-                  Instruction content. step 1: step 2: step 3: step 4:
+                  Please create a donation list to donate.
                 </Text>
               </Body>
             </CardItem>
@@ -66,8 +66,8 @@ export default class HomeScreen extends React.Component {
                   }}
                 />
                 <Body>
-                  <Text>Activity 1</Text>
-                  <Text note>Note 1</Text>
+                  <Text>American Red Cross</Text>
+                  <Text note>Sound the Alarm. Save a Life. Just one day of your life can change someone else's forever.</Text>
                 </Body>
               </Left>
             </CardItem>
@@ -75,7 +75,7 @@ export default class HomeScreen extends React.Component {
               <Image
                 source={{
                   uri:
-                    "https://irishhostfamily.ie/wp-content/uploads/2017/05/group-of-kids-Irish-Host-Family.jpg"
+                    "http://clipart-library.com/images/8ixrGeqrT.jpg"
                 }}
                 style={{ height: 300, width: null, flex: 1 }}
               />
@@ -84,13 +84,13 @@ export default class HomeScreen extends React.Component {
               <Left>
                 <Button transparent>
                   <Icon active name="thumbs-up" />
-                  <Text>12 Likes</Text>
+                  <Text>42 Likes</Text>
                 </Button>
               </Left>
               <Body>
                 <Button transparent>
                   <Icon active name="chatbubbles" />
-                  <Text>4 Comments</Text>
+                  <Text>14 Comments</Text>
                 </Button>
               </Body>
               <Right>
@@ -104,7 +104,7 @@ export default class HomeScreen extends React.Component {
                 <Thumbnail
                   source={{
                     uri:
-                      "https://getuikit.com/v2/docs/images/placeholder_600x400.svg"
+                      ".\assets\images\goodwill.jpg"
                   }}
                 />
                 <Body>
@@ -317,18 +317,18 @@ export default class HomeScreen extends React.Component {
                 <Image
                   source={{
                     uri:
-                      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto/gigs/1724448/original/big_Logo_Design_307_n9e06f0Se/design-your-company-logo-in-english-and-arabic.jpg"
+                      "https://avatars3.githubusercontent.com/u/56052335?s=400&u=34e0360e48b76117e01419d7682c0f3185436d39&v=4"
                   }}
-                  style={{ height: 200, width: 400, flex: 1 }}
+                  style={{ height: 350, width: 350, flex: 1 }}
                 />
-                <Text>//Your text here</Text>
+                <Text>DonationPlace Solution</Text>
               </Body>
             </CardItem>
             <CardItem>
               <Left>
                 <Button transparent textStyle={{ color: "#87838B" }}>
-                  <Icon name="logo-github" />
-                  <Text>1,926 stars</Text>
+                  <Icon name="thumbs-up"/>
+                  <Text>1,926 Likes</Text>
                 </Button>
               </Left>
             </CardItem>
