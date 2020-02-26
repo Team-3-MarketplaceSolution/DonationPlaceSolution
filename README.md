@@ -41,7 +41,7 @@ How to get the application running:
 
 (IF ON WINDOWS):
 
-6) edit blacklist.js > 
+6) edit blacklist.js > (OPTIONAL ON WINDOWS)
 
     CHANGE
 
@@ -60,3 +60,5 @@ How to get the application running:
     /heapCapture\/bundle\.js/,
     /.*\/__tests__\/.*/
     ];
+
+7) NPM install native-base
