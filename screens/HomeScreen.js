@@ -48,7 +48,7 @@ export default class HomeScreen extends React.Component {
             <CardItem>
               <Body>
                 <Text>
-                  Please create a donation list to donate.
+                  To donate please create a donation list below, and then we will provide a tax return estimate on your contributions.
                 </Text>
               </Body>
             </CardItem>
@@ -62,7 +62,7 @@ export default class HomeScreen extends React.Component {
                 <Thumbnail
                   source={{
                     uri:
-                      "https://getuikit.com/v2/docs/images/placeholder_600x400.svg"
+                      "http://clipart-library.com/images/8ixrGeqrT.jpg"
                   }}
                 />
                 <Body>
@@ -75,7 +75,7 @@ export default class HomeScreen extends React.Component {
               <Image
                 source={{
                   uri:
-                    "http://clipart-library.com/images/8ixrGeqrT.jpg"
+                    "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F80902337%2F42761723304%2F1%2Foriginal.20191113-163605?w=800&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C85%2C2048%2C1024&s=ae0fe51ec356203b8f464f1a6b661b72"
                 }}
                 style={{ height: 300, width: null, flex: 1 }}
               />
@@ -90,7 +90,7 @@ export default class HomeScreen extends React.Component {
               <Body>
                 <Button transparent>
                   <Icon active name="chatbubbles" />
-                  <Text>14 Comments</Text>
+                  <Text>24 Comments</Text>
                 </Button>
               </Body>
               <Right>
@@ -104,12 +104,12 @@ export default class HomeScreen extends React.Component {
                 <Thumbnail
                   source={{
                     uri:
-                      ".\assets\images\goodwill.jpg"
+                      "https://bloximages.newyork1.vip.townnews.com/stltoday.com/content/tncms/assets/v3/editorial/f/e9/fe94cb57-0b83-5665-8879-dceca34f3aaa/59a9fbc88725b.image.jpg?resize=400%2C512"
                   }}
                 />
                 <Body>
-                  <Text>Activity 2</Text>
-                  <Text note>Note 2</Text>
+                  <Text>Goodwill</Text>
+                  <Text note>Earn up to $500* by hosting a Goodwill donation drive to benefit your school by collecting reusable goods.</Text>
                 </Body>
               </Left>
             </CardItem>
@@ -117,7 +117,49 @@ export default class HomeScreen extends React.Component {
               <Image
                 source={{
                   uri:
-                    "https://irishhostfamily.ie/wp-content/uploads/2017/05/group-of-kids-Irish-Host-Family.jpg"
+                    "https://goodwillwa.org/wp-content/uploads/2015/10/Donation-Drive_FB-post_2017.jpg"
+                }}
+                style={{ height: 300, width: null, flex: 1 }}
+              />
+            </CardItem>
+            <CardItem>
+              <Left>
+                <Button transparent>
+                  <Icon active name="thumbs-up" />
+                  <Text>44 Likes</Text>
+                </Button>
+              </Left>
+              <Body>
+                <Button transparent>
+                  <Icon active name="chatbubbles" />
+                  <Text>73 Comments</Text>
+                </Button>
+              </Body>
+              <Right>
+                <Text>2 Days ago</Text>
+              </Right>
+            </CardItem>
+          </Card>
+          <Card>
+            <CardItem>
+              <Left>
+                <Thumbnail
+                  source={{
+                    uri:
+                    "https://tano.org/wp-content/uploads/2015/06/salvation-army-logo1.jpg"
+                  }}
+                />
+                <Body>
+                  <Text>Salvation Army</Text>
+                  <Text note>Friday, June 6th, 2014, BakeMark Executive Boyd Mulloy presents a $10,000 check to Captain Grady Brown and Jessica Martin-Mason in honor of National Donut Day and the veterans The Salvation Army serves.</Text>
+                </Body>
+              </Left>
+            </CardItem>
+            <CardItem cardBody>
+              <Image
+                source={{
+                  uri:
+                  "https://live.staticflickr.com/5493/14357770481_c345758419_b.jpg"
                 }}
                 style={{ height: 300, width: null, flex: 1 }}
               />
@@ -136,7 +178,7 @@ export default class HomeScreen extends React.Component {
                 </Button>
               </Body>
               <Right>
-                <Text>11h ago</Text>
+                <Text>3 Days ago</Text>
               </Right>
             </CardItem>
           </Card>
@@ -146,12 +188,12 @@ export default class HomeScreen extends React.Component {
                 <Thumbnail
                   source={{
                     uri:
-                      "https://getuikit.com/v2/docs/images/placeholder_600x400.svg"
+                      "https://urbanareas.net/info/wp-content/uploads/2015/03/37847_nonprofit_helping_hands_for_the_disabled_300x300.jpg"
                   }}
                 />
                 <Body>
-                  <Text>Activity 3</Text>
-                  <Text note>Note 3</Text>
+                  <Text>Helping Hands NYC</Text>
+                  <Text note>Our mission is to improve the lives of under-resourced New York City youth through the arts.</Text>
                 </Body>
               </Left>
             </CardItem>
@@ -159,7 +201,7 @@ export default class HomeScreen extends React.Component {
               <Image
                 source={{
                   uri:
-                    "https://irishhostfamily.ie/wp-content/uploads/2017/05/group-of-kids-Irish-Host-Family.jpg"
+                    "https://urbanareas.net/info/wp-content/uploads/2015/05/39101_nonprofit_organization_creative_art_works3.jpg"
                 }}
                 style={{ height: 300, width: null, flex: 1 }}
               />
@@ -168,17 +210,17 @@ export default class HomeScreen extends React.Component {
               <Left>
                 <Button transparent>
                   <Icon active name="thumbs-up" />
-                  <Text>12 Likes</Text>
+                  <Text>97 Likes</Text>
                 </Button>
               </Left>
               <Body>
                 <Button transparent>
                   <Icon active name="chatbubbles" />
-                  <Text>4 Comments</Text>
+                  <Text>112 Comments</Text>
                 </Button>
               </Body>
               <Right>
-                <Text>11h ago</Text>
+                <Text>3 Days ago</Text>
               </Right>
             </CardItem>
           </Card>
@@ -188,12 +230,12 @@ export default class HomeScreen extends React.Component {
                 <Thumbnail
                   source={{
                     uri:
-                      "https://getuikit.com/v2/docs/images/placeholder_600x400.svg"
+                      "http://clipart-library.com/images/8ixrGeqrT.jpg"
                   }}
                 />
                 <Body>
-                  <Text>Activity 4</Text>
-                  <Text note>Note 4</Text>
+                  <Text>American Red Cross</Text>
+                  <Text note>Join us for our second annual American Red Cross volunteer fair to learn about new volunteer opportunities with different non-profit organizations. This is the perfect opportunity network with...</Text>
                 </Body>
               </Left>
             </CardItem>
@@ -201,7 +243,7 @@ export default class HomeScreen extends React.Component {
               <Image
                 source={{
                   uri:
-                    "https://irishhostfamily.ie/wp-content/uploads/2017/05/group-of-kids-Irish-Host-Family.jpg"
+                    "https://static.scholar.harvard.edu/files/styles/media_gallery_large/public/nlanter/files/redcross_720_09.png?m=1545532646&itok=mqzp5_-A"
                 }}
                 style={{ height: 300, width: null, flex: 1 }}
               />
@@ -210,104 +252,21 @@ export default class HomeScreen extends React.Component {
               <Left>
                 <Button transparent>
                   <Icon active name="thumbs-up" />
-                  <Text>12 Likes</Text>
+                  <Text>420 Likes</Text>
                 </Button>
               </Left>
               <Body>
                 <Button transparent>
                   <Icon active name="chatbubbles" />
-                  <Text>4 Comments</Text>
+                  <Text>69 Comments</Text>
                 </Button>
               </Body>
               <Right>
-                <Text>11h ago</Text>
+                <Text>4 Days ago</Text>
               </Right>
             </CardItem>
           </Card>
-          <Card>
-            <CardItem>
-              <Left>
-                <Thumbnail
-                  source={{
-                    uri:
-                      "https://getuikit.com/v2/docs/images/placeholder_600x400.svg"
-                  }}
-                />
-                <Body>
-                  <Text>Activity 5</Text>
-                  <Text note>Note 5</Text>
-                </Body>
-              </Left>
-            </CardItem>
-            <CardItem cardBody>
-              <Image
-                source={{
-                  uri:
-                    "https://irishhostfamily.ie/wp-content/uploads/2017/05/group-of-kids-Irish-Host-Family.jpg"
-                }}
-                style={{ height: 300, width: null, flex: 1 }}
-              />
-            </CardItem>
-            <CardItem>
-              <Left>
-                <Button transparent>
-                  <Icon active name="thumbs-up" />
-                  <Text>12 Likes</Text>
-                </Button>
-              </Left>
-              <Body>
-                <Button transparent>
-                  <Icon active name="chatbubbles" />
-                  <Text>4 Comments</Text>
-                </Button>
-              </Body>
-              <Right>
-                <Text>11h ago</Text>
-              </Right>
-            </CardItem>
-          </Card>
-          <Card>
-            <CardItem>
-              <Left>
-                <Thumbnail
-                  source={{
-                    uri:
-                      "https://getuikit.com/v2/docs/images/placeholder_600x400.svg"
-                  }}
-                />
-                <Body>
-                  <Text>Activity 6</Text>
-                  <Text note>Note </Text>
-                </Body>
-              </Left>
-            </CardItem>
-            <CardItem cardBody>
-              <Image
-                source={{
-                  uri:
-                    "https://irishhostfamily.ie/wp-content/uploads/2017/05/group-of-kids-Irish-Host-Family.jpg"
-                }}
-                style={{ height: 300, width: null, flex: 1 }}
-              />
-            </CardItem>
-            <CardItem>
-              <Left>
-                <Button transparent>
-                  <Icon active name="thumbs-up" />
-                  <Text>12 Likes</Text>
-                </Button>
-              </Left>
-              <Body>
-                <Button transparent>
-                  <Icon active name="chatbubbles" />
-                  <Text>4 Comments</Text>
-                </Button>
-              </Body>
-              <Right>
-                <Text>11h ago</Text>
-              </Right>
-            </CardItem>
-          </Card>
+         
           <Card style={{ flex: 0 }}>
             <CardItem header bordered>
               <Text>Organization description</Text>
@@ -321,7 +280,7 @@ export default class HomeScreen extends React.Component {
                   }}
                   style={{ height: 350, width: 350, flex: 1 }}
                 />
-                <Text>DonationPlace Solution</Text>
+                <Text>DonationPlace Solution is your one stop shop to getting the most out of your donations. We ensure that your donations go into the hands of the needy, and that your tax return will be maximized.</Text>
               </Body>
             </CardItem>
             <CardItem>
