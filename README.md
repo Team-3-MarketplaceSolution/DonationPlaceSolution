@@ -10,7 +10,7 @@ expo
 To run application: 
 type expo start in terminal once you are in the project's directory.
 *NOTE* 
-Please use VSCode, it is the most steamlined way to geth this software up and running.
+Please use VSCode, it is the most streamlined way to get this software up and running.
 
 How to get the application running: 
 
