@@ -7,6 +7,8 @@ import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import EditProfileScreen from "../screens/EditProfileScreen";
+import FormGenerator from  '../screens/AddItem';
+
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -61,6 +63,7 @@ const ProfileStack = createStackNavigator(
   config
 );
 
+
 ProfileStack.navigationOptions = {
   tabBarLabel: 'Profile',
   tabBarIcon: ({ focused }) => (
@@ -70,10 +73,32 @@ ProfileStack.navigationOptions = {
 
 ProfileStack.path = '';
 
+// 21341234123
+
+const ItemStack = createStackNavigator(
+  {
+    Profile: FormGenerator,
+
+  },
+  config
+);
+
+
+ItemStack.navigationOptions = {
+  tabBarLabel: 'Items',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-add' : 'md-add'} />
+  ),
+};
+
+ItemStack.path = '';
+
+
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
-  LinksStack,
+  ItemStack,
   ProfileStack,
+  
 });
 
 tabNavigator.path = '';
