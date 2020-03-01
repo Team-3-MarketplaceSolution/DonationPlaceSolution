@@ -43,7 +43,7 @@ const fields = [
   },
 
 ];
-return fields;
+
 export default class FormGenerator extends Component {
   add() {
     const formValues = this.formGenerator.getValues();
@@ -61,7 +61,7 @@ export default class FormGenerator extends Component {
           />
         </View>
         <View style={styles.submitButton}>
-          <Button block onPress={() => alert('List Created Successfully!')}>
+          <Button block onPress={() => console.log(this.formGenerator.getValues())}>
             <Text>Create List</Text>
           </Button>
         </View>
