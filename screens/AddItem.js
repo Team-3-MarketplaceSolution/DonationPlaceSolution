@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
 import { View, Text, Button } from 'native-base';
 import GenerateForm from 'react-native-form-builder';
- 
+
 const styles = {
   wrapper: {
     flex: 1,
@@ -13,36 +13,37 @@ const styles = {
     paddingTop: 20,
   },
 };
+
+
 const fields = [
   {
-    type: 'text',
-    name: 'item_name',
-    required: true,
-    label: 'Item Name',
-    icon: 'ios-shirt'
-  },
-  {
-    type: 'text',
-    name: 'item_description',
-    required: true,
-    label: 'Description',
-  },
-  {
     type: 'number',
-    name: 'OriginalPrice',
-    required: true,
-    label: 'Price (USD)',
-    icon: 'ios-cash',
+    name: 'Shirts',
+    label: 'Shirts',
+  },
+    {
+    type: 'number',
+    name: 'pants',
+    label: 'Pants',
+  },
+    {
+    type: 'number',
+    name: 'jackets',
+    label: 'Jackets',
+  },
+    {
+    type: 'number',
+    name: 'sweaters',
+    label: 'Sweaters',
   },
   {
-    type: 'picker',
-    name: 'country',
-    mode: 'dialog',
-    label: 'Select Condition',
-    defaultValue: 'Good',
-    options: ['New', 'Good', 'OK', 'Poor'],
+    type: 'text',
+    name: 'inHonorOf',
+    label: 'Donate in Honor of Someone?',
   },
+
 ];
+return fields;
 export default class FormGenerator extends Component {
   add() {
     const formValues = this.formGenerator.getValues();
@@ -60,13 +61,15 @@ export default class FormGenerator extends Component {
           />
         </View>
         <View style={styles.submitButton}>
-          <Button block onPress={() => alert('Item Submitted Successfully!')}>
-            <Text>ADD ITEM</Text>
+          <Button block onPress={() => alert('List Created Successfully!')}>
+            <Text>Create List</Text>
           </Button>
         </View>
       </View>
     );
   }
 }
- 
+
 AppRegistry.registerComponent('FormGenerator', () => FormGenerator);
+
+
