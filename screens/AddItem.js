@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
 import { View, Text, Button } from 'native-base';
 import GenerateForm from 'react-native-form-builder';
+import * as firebase from "firebase";
 
 const styles = {
   wrapper: {
@@ -48,6 +49,12 @@ export default class FormGenerator extends Component {
   add() {
     const formValues = this.formGenerator.getValues();
     console.log('FORM VALUES', formValues);
+    firebase.database().ref('Lists/'+firebase.auth().currentUser.uid).push(this.formGenerator.getValues()).then((data)=>{
+      //success callback
+      alert("List Created");
+      console.log('data ' , data)
+    }).catch(error => console.log(error));
+
   }
   render() {
     return (
@@ -61,7 +68,7 @@ export default class FormGenerator extends Component {
           />
         </View>
         <View style={styles.submitButton}>
-          <Button block onPress={() => console.log(this.formGenerator.getValues())}>
+          <Button block onPress={()=>this.add()}>
             <Text>Create List</Text>
           </Button>
         </View>
