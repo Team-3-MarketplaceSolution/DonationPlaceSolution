@@ -1,19 +1,19 @@
 import React, {Component} from 'react';
-import { ExpoConfigView } from '@expo/samples';
-import { View, Text, TextInput, TouchableOpacity,StyleSheet, Button} from 'react-native';
+import {ExpoConfigView} from '@expo/samples';
+import {View, Text, StyleSheet} from 'react-native';
 import * as firebase from "firebase";
-import Colors from "../constants/Colors";
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import SubmitButton from "../components/SubmitButton";
-
+import {List, ListItem, Left, Body} from "native-base";
 
 
 export default class ProfileScreen extends React.Component {
     state = {
-        email:"",
+        email: "",
         displayName: "",
-        uid:"",
+        uid: "",
         first_name: '',
-        last_name:'',
+        last_name: '',
         street1: '',
         street2: '',
         city: '',
@@ -22,19 +22,20 @@ export default class ProfileScreen extends React.Component {
         errorMessage: null
     }
 
-    onEditProfileButtonClicked =()=>{
+    onEditProfileButtonClicked = () => {
         this.props.navigation.navigate('EditProfile', {
             uid: this.state.uid,
         })
     }
-    onSignOutButtonClicked =()=>{
+    onSignOutButtonClicked = () => {
         firebase.auth().signOut();
     }
 
+
     componentDidMount() {
-        const {email, displayName,uid} = firebase.auth().currentUser;
-        this.setState({email,displayName,uid});
-        firebase.database().ref('Users/'+uid).on('value',(data)=>{
+        const {email, displayName, uid} = firebase.auth().currentUser;
+        this.setState({email, displayName, uid});
+        firebase.database().ref('Users/' + uid).on('value', (data) => {
             console.log(data.toJSON().first_name)
             this.setState(data.toJSON());
         })
@@ -42,17 +43,35 @@ export default class ProfileScreen extends React.Component {
 
     render() {
         return (
-            <View style = {style.container}>
-                <Text style = {style.header}>Hi {this.state.first_name} {this.state.last_name} !</Text>
-                <Text style = {style.emailText}>Email: {this.state.email}</Text>
-                <Text style = {style.emailText}>Street1: {this.state.street1}</Text>
-                <Text style = {style.emailText}>Street2: {this.state.street2}</Text>
-                <Text style = {style.emailText}>City: {this.state.city}</Text>
-                <Text style = {style.emailText}>State: {this.state.state}</Text>
-                <Text style = {style.emailText}>ZipCode: {this.state.zip}</Text>
+            <View style={style.container}>
+                <Text style={style.header}>Hi {this.state.first_name} {this.state.last_name} !</Text>
+                <List style={style.list}>
+                    <ListItem icon>
+                        <Left>
+                            <Icon name="envelope"/>
+                        </Left>
+                        <Body>
+                            <Text>Email: {this.state.email}</Text></Body>
+                    </ListItem>
+                    <ListItem icon>
+                        <Left>
+                            <Icon name="home"/>
+                        </Left>
+                        <Body>
+                        <Text>Address</Text>
+                        </Body>
+                    </ListItem>
+                    <View style={style.addressList}>
+                    <ListItem><Text>Street1: {this.state.street1}</Text></ListItem>
+                    <ListItem><Text>Street2: {this.state.street2}</Text></ListItem>
+                    <ListItem><Text>City: {this.state.city}</Text></ListItem>
+                    <ListItem><Text>State: {this.state.state}</Text></ListItem>
+                    <ListItem><Text>ZipCode: {this.state.zip}</Text></ListItem>
+                    </View>
+                </List>
                 <View style={style.buttonContainer}>
-                    <SubmitButton click = {this.onEditProfileButtonClicked}>Edit Profile</SubmitButton>
-                    <SubmitButton click = {this.onSignOutButtonClicked}>Sign Out</SubmitButton>
+                    <SubmitButton click={this.onEditProfileButtonClicked}>Edit Profile</SubmitButton>
+                    <SubmitButton click={this.onSignOutButtonClicked}>Sign Out</SubmitButton>
                 </View>
             </View>
         );
@@ -60,30 +79,33 @@ export default class ProfileScreen extends React.Component {
 }
 
 
-
 ProfileScreen.navigationOptions = {
-  title: 'Profile',
+    title: 'Profile',
 };
 
-const style =  StyleSheet.create({
+const style = StyleSheet.create({
     container: {
-        flex:1,
+        flex: 1,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
     },
-    header:{
-        marginTop:15,
+    list: {
+        marginTop: 40,
+        width: '75%',
+    },
+    header: {
+        marginTop: 15,
         fontWeight: "500",
         fontSize: 20
     },
-    emailText:{
-        marginTop:15,
+    buttonContainer: {
+        width: '100%',
+        marginTop: "auto",
+        marginBottom: 15,
+        alignItems: 'center',
     },
-    buttonContainer:{
-        width:'100%',
-        marginTop:"auto",
-        marginBottom:15,
-        alignItems:'center',
-    },
+    addressList:{
+        marginLeft:30,
+    }
 
 })
