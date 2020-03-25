@@ -4,7 +4,7 @@ import * as firebase from "firebase";
 import Colors from "../constants/Colors";
 import SubmitButton from "../components/SubmitButton";
 
-export default class SignUpScreen extends React.Component {
+export default class EditProfileScreen extends React.Component {
     state = {
         uid:"",
         first_name: '',
