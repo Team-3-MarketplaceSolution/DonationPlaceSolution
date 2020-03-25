@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {ExpoConfigView} from '@expo/samples';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import * as firebase from "firebase";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import SubmitButton from "../components/SubmitButton";
@@ -27,6 +27,13 @@ export default class ProfileScreen extends React.Component {
             uid: this.state.uid,
         })
     }
+    onMyDonationButtonClicked = () => {
+        this.props.navigation.navigate('MyDonation', {
+            uid: this.state.uid,
+        })
+    }
+
+
     onSignOutButtonClicked = () => {
         firebase.auth().signOut();
     }
@@ -43,37 +50,40 @@ export default class ProfileScreen extends React.Component {
 
     render() {
         return (
-            <View style={style.container}>
-                <Text style={style.header}>Hi {this.state.first_name} {this.state.last_name} !</Text>
-                <List style={style.list}>
-                    <ListItem icon>
-                        <Left>
-                            <Icon name="envelope"/>
-                        </Left>
-                        <Body>
-                            <Text>Email: {this.state.email}</Text></Body>
-                    </ListItem>
-                    <ListItem icon>
-                        <Left>
-                            <Icon name="home"/>
-                        </Left>
-                        <Body>
-                        <Text>Address</Text>
-                        </Body>
-                    </ListItem>
-                    <View style={style.addressList}>
-                    <ListItem><Text>Street1: {this.state.street1}</Text></ListItem>
-                    <ListItem><Text>Street2: {this.state.street2}</Text></ListItem>
-                    <ListItem><Text>City: {this.state.city}</Text></ListItem>
-                    <ListItem><Text>State: {this.state.state}</Text></ListItem>
-                    <ListItem><Text>ZipCode: {this.state.zip}</Text></ListItem>
-                    </View>
-                </List>
+            <ScrollView style={style.container}>
+                <View style={style.mainContainer}>
+                    <Text style={style.header}>Hi {this.state.first_name} {this.state.last_name} !</Text>
+                    <List style={style.list}>
+                        <ListItem icon>
+                            <Left>
+                                <Icon name="envelope"/>
+                            </Left>
+                            <Body>
+                                <Text>Email: {this.state.email}</Text></Body>
+                        </ListItem>
+                        <ListItem icon>
+                            <Left>
+                                <Icon name="home"/>
+                            </Left>
+                            <Body>
+                                <Text>Address</Text>
+                            </Body>
+                        </ListItem>
+                        <View style={style.addressList}>
+                            <ListItem><Text>Street1: {this.state.street1}</Text></ListItem>
+                            <ListItem><Text>Street2: {this.state.street2}</Text></ListItem>
+                            <ListItem><Text>City: {this.state.city}</Text></ListItem>
+                            <ListItem><Text>State: {this.state.state}</Text></ListItem>
+                            <ListItem><Text>ZipCode: {this.state.zip}</Text></ListItem>
+                        </View>
+                    </List>
+                </View>
                 <View style={style.buttonContainer}>
+                    <SubmitButton click={this.onMyDonationButtonClicked}>MyDonation</SubmitButton>
                     <SubmitButton click={this.onEditProfileButtonClicked}>Edit Profile</SubmitButton>
                     <SubmitButton click={this.onSignOutButtonClicked}>Sign Out</SubmitButton>
                 </View>
-            </View>
+            </ScrollView>
         );
     }
 }
@@ -85,7 +95,9 @@ ProfileScreen.navigationOptions = {
 
 const style = StyleSheet.create({
     container: {
-        flex: 1,
+
+    },
+    mainContainer:{
         justifyContent: "center",
         alignItems: "center",
     },
@@ -104,8 +116,8 @@ const style = StyleSheet.create({
         marginBottom: 15,
         alignItems: 'center',
     },
-    addressList:{
-        marginLeft:30,
+    addressList: {
+        marginLeft: 30,
     }
 
 })
