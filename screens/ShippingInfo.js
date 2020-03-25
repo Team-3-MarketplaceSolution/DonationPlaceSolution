@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
 import { View, Text, TextInput, TouchableOpacity,StyleSheet, Button, Image} from 'react-native';
-import * as firebase from "firebase";
-import Colors from "../constants/Colors";
-import SubmitButton from "../components/SubmitButton";
 
 export default class ShippingInfo extends React.Component {
     state = {
@@ -18,7 +15,7 @@ export default class ShippingInfo extends React.Component {
                 <Text>Please print and visit your local UPS with this label</Text>
                 <Text>The staff will assit you in shipping the package</Text>
                 <Text>
-                    
+
                 </Text>
     
                 <Image 
