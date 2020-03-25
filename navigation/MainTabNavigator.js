@@ -8,6 +8,7 @@ import LinksScreen from '../screens/LinksScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import EditProfileScreen from "../screens/EditProfileScreen";
 import FormGenerator from  '../screens/AddItem';
+import ShippingInfo from '../screens/ShippingInfo';
 
 
 const config = Platform.select({
@@ -29,7 +30,7 @@ HomeStack.navigationOptions = {
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
+          ? `ios-${focused ? '' : '-outline'}`
           : 'md-information-circle'
       }
     />
@@ -74,6 +75,20 @@ ProfileStack.navigationOptions = {
 ProfileStack.path = '';
 
 // 21341234123
+const ShippingStack = createStackNavigator(
+  {
+    Links: ShippingInfo,
+  },
+  config
+);
+ShippingStack.navigationOptions = {
+  tabBarLabel: 'Shipping',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-contact' : 'md-contact'} />
+  ),
+};
+
+ShippingStack.path = '';
 
 const ItemStack = createStackNavigator(
   {
@@ -97,7 +112,9 @@ ItemStack.path = '';
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   ItemStack,
+  ShippingStack,
   ProfileStack,
+
   
 });
 
