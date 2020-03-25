@@ -12,7 +12,7 @@ export default class ShippingInfo extends React.Component {
             <View style={styles.container}>
                 <Text>Your current tracking number is: 1Z94125299 </Text>
 
-                <Text>Please print and visit your local UPS with this label</Text>
+                <Text>Please print and visit your local FEDEX with this label</Text>
                 <Text>The staff will assit you in shipping the package</Text>
                 <Text>
 
