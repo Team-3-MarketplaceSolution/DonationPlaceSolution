@@ -10,6 +10,7 @@ import EditProfileScreen from "../screens/EditProfileScreen";
 import FormGenerator from '../screens/AddItem';
 import ShippingInfo from '../screens/ShippingInfo';
 import MyDonationScreen from "../screens/MyDonationScreen";
+import ListScreen from "../screens/ListScreen";
 
 
 const config = Platform.select({
@@ -61,8 +62,10 @@ const ProfileStack = createStackNavigator(
         Profile: ProfileScreen,
         EditProfile: EditProfileScreen,
         MyDonation: MyDonationScreen,
+        List: ListScreen,
 
     },
+
     config
 );
 
@@ -115,7 +118,6 @@ const tabNavigator = createBottomTabNavigator({
     ItemStack,
     ShippingStack,
     ProfileStack,
-
 
 });
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, TextInput, TouchableOpacity, View} from 'react-native';
+import {StyleSheet,Text, TextInput, TouchableOpacity, View} from 'react-native';
 import * as firebase from "firebase";
 import {
     Container,
@@ -9,12 +9,7 @@ import {
     Card,
     CardItem,
     Thumbnail,
-    Text,
-    Button,
-    Icon,
-    Left,
-    Body,
-    Right
+
 } from "native-base";
 
 export default class MyDonationScreen extends React.Component {
@@ -36,10 +31,16 @@ export default class MyDonationScreen extends React.Component {
 
     }
 
+    onListClicked = (listID) => {
+        this.props.navigation.navigate('List', {
+            listID: listID,
+        })
+    }
+
     render(){
         return(
             <View styel={style.container}>
-                {this.state.lists.map(list => <Card><Text key={list} style={style.list}>List No.{list}</Text></Card>)}
+                {this.state.lists.map(listID => <Card><Text onPress={this.onListClicked.bind(this, listID)} key={listID} style={style.list} >List No.{listID}</Text></Card>)}
             </View>
         );
 }
