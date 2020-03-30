@@ -32,8 +32,7 @@ HomeStack.navigationOptions = {
             focused={focused}
             name={
                 Platform.OS === 'ios'
-                    ? `ios-${focused ? '' : '-outline'}`
-                    : 'md-information-circle'
+                    ? `ios-home` : 'md-home'
             }
         />
     ),
@@ -89,7 +88,7 @@ const ShippingStack = createStackNavigator(
 ShippingStack.navigationOptions = {
     tabBarLabel: 'Shipping',
     tabBarIcon: ({focused}) => (
-        <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-contact' : 'md-contact'}/>
+        <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-paper-plane' : 'md-paper-plane'}/>
     ),
 };
 

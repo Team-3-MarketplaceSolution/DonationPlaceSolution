@@ -36,7 +36,8 @@
   },
   "devDependencies": {
     "babel-preset-expo": "^7.0.0",
-    "jest-expo": "^35.0.0"
+    "jest-expo": "^35.0.0",
+    "react-native-svg": "^12.0.3"
   },
   "private": true
 }

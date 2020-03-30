@@ -19,6 +19,7 @@ import {
 } from "native-base";
 import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
+import Colors from "../constants/Colors";
 
 export default class HomeScreen extends React.Component {
   constructor(props) {
@@ -44,6 +45,21 @@ export default class HomeScreen extends React.Component {
     return (
       <Container>
         <Content>
+          <Card>
+            <CardItem>
+              <Body>
+                <Text style={{color:  Colors.buttonColor, fontWeight: "800", fontSize:20}}>
+                  Donation Place Solution
+                </Text>
+              </Body>
+            </CardItem>
+            <CardItem cardBody>
+              <Image
+                  source={require('../assets/images/ComponentTMP_1-image.png')}
+                  style={{ height: 300, width: null, flex: 1 }}
+              />
+            </CardItem>
+          </Card>
           <Card>
             <CardItem>
               <Body>

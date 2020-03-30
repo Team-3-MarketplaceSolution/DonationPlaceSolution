@@ -47,9 +47,10 @@ const fields = [
 
 export default class FormGenerator extends Component {
   add() {
-    const formValues = this.formGenerator.getValues();
+    const formValues = {...this.formGenerator.getValues(), status:"Created"};
     console.log('FORM VALUES', formValues);
-    firebase.database().ref('Lists/'+firebase.auth().currentUser.uid).push(this.formGenerator.getValues()).then((data)=>{
+    console.log(this.formGenerator.getValues());
+    firebase.database().ref('Lists/'+firebase.auth().currentUser.uid).push(formValues).then((data)=>{
       //success callback
       alert("List Created");
       console.log('data ' , data)
