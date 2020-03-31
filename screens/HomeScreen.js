@@ -46,13 +46,9 @@ export default class HomeScreen extends React.Component {
       <Container>
         <Content>
           <Card>
-            <CardItem>
-              <Body>
-                <Text style={{color:  Colors.buttonColor, fontWeight: "800", fontSize:20}}>
+                <Text style={{color:  Colors.buttonColor, fontWeight: "800", fontSize:20,textAlign:'center',padding:20}}>
                   Donation Place Solution
                 </Text>
-              </Body>
-            </CardItem>
             <CardItem cardBody>
               <Image
                   source={require('../assets/images/ComponentTMP_1-image.png')}

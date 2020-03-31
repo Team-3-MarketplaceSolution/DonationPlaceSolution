@@ -19,7 +19,7 @@ const styles = {
 const fields = [
   {
     type: 'number',
-    name: 'Shirts',
+    name: 'shirts',
     label: 'Shirts',
   },
     {
