@@ -72,8 +72,11 @@ export default class ListScreen extends React.Component {
 
                         return (<Card>
                             <CardItem>
-                                <Left><Icon style={{ marginStart: 20}} size= 'large' name="tshirt"/></Left>
-                                <Body><Text style={style.cardTitleText}>{item[0]}</Text>
+                                <Left><View style={{backgroundColor:'#e9f5ec', width:60, height:60, justifyContent: 'center', alignItems: 'center' }}>
+                                    <Icon style={{margin: 'auto'}} size='large' name="tshirt"/>
+                                </View>
+                                </Left>
+                                <Body style={{ marginStart: -30}}><Text style={style.cardTitleText}>{item[0]}</Text>
                                     <Text style={style.cardSubTitleText}>${price}</Text>
                                 </Body>
                                 <Right><Badge style={{ backgroundColor: Colors.buttonColor }}>
