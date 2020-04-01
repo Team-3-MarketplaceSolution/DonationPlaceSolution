@@ -73,7 +73,9 @@ export default class ListScreen extends React.Component {
                         return (<Card>
                             <CardItem>
                                 <Left><Icon style={{ marginStart: 20}} size= 'large' name="tshirt"/></Left>
-                                <Body><Text style={style.cardText}>{item[0]}  ${price}</Text></Body>
+                                <Body><Text style={style.cardTitleText}>{item[0]}</Text>
+                                    <Text style={style.cardSubTitleText}>${price}</Text>
+                                </Body>
                                 <Right><Badge style={{ backgroundColor: Colors.buttonColor }}>
                                     <Text>   {item[1]}   </Text>
                                 </Badge></Right></CardItem>
@@ -99,6 +101,16 @@ const style = StyleSheet.create({
     cardText:{
         textAlign:'center',
         padding: 15
+    },
+    cardTitleText:{
+        fontSize: 20,
+        textAlign:'left',
+        padding:5,
+    },
+    cardSubTitleText:{
+        fontSize: 15,
+        textAlign:'left',
+        padding:5,
     },
     titleText:{
         backgroundColor: Colors.buttonColor,
