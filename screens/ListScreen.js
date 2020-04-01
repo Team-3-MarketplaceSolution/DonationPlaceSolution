@@ -9,9 +9,19 @@ import {
     Card,
     CardItem,
     Thumbnail,
+    Badge,
+    Right,
+    Body,
+    Left
 
 } from "native-base";
 import Colors from "../constants/Colors";
+import Icon from "react-native-vector-icons/FontAwesome5";
+
+// const icons = {
+//     shirts:'tshirt',
+//
+// }
 
 
 export default class ListScreen extends React.Component {
@@ -59,12 +69,21 @@ export default class ListScreen extends React.Component {
                         let price = this.state.values[item[0]];
                         sum += item[1] * price;
                         console.log(sum);
-                        return (<Card><Text style={style.cardText}>{item[0]} X {item[1]} @ ${price}</Text></Card>);
+
+                        return (<Card>
+                            <CardItem>
+                                <Left><Icon style={{ marginStart: 20}} size= 'large' name="tshirt"/></Left>
+                                <Body><Text style={style.cardText}>{item[0]}  ${price}</Text></Body>
+                                <Right><Badge style={{ backgroundColor: Colors.buttonColor }}>
+                                    <Text>   {item[1]}   </Text>
+                                </Badge></Right></CardItem>
+
+                        </Card>);
                     }
                 })}
-                <Card><Text style={style.cardText}>Total Value: ${sum}</Text></Card>
+                <Card><Text style={style.boldText}>Total Value: ${sum}</Text></Card>
                 {honor}
-                <Card><Text style={style.cardText}>Status: {this.state.status}</Text></Card>
+                <Card><Text style={style.boldText}>Status: {this.state.status}</Text></Card>
             </View>
         );
     }
@@ -83,6 +102,11 @@ const style = StyleSheet.create({
     },
     titleText:{
         backgroundColor: Colors.buttonColor,
+        textAlign:'center',
+        padding: 15
+    },
+    boldText:{
+        fontWeight:'bold',
         textAlign:'center',
         padding: 15
     }
