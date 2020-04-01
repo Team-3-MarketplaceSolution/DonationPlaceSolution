@@ -11,6 +11,7 @@ import {
     Thumbnail,
 
 } from "native-base";
+import Colors from "../constants/Colors";
 
 
 export default class ListScreen extends React.Component {
@@ -22,11 +23,11 @@ export default class ListScreen extends React.Component {
         pants: "",
         status: "Created",
         sweaters: "",
+        values:{},
     }
 
 
     componentDidMount() {
-
         const myListID = this.props.navigation.getParam('listID');
         this.setState({listID: myListID});
         console.log(this.state); 
@@ -35,11 +36,12 @@ export default class ListScreen extends React.Component {
         firebase.database().ref('Lists/' +firebase.auth().currentUser.uid + '/' + myListID).on('value', (data) => {
             this.setState(data.val());
         })
+
+        firebase.database().ref('Values').on('value', (data) => {
+            this.setState({values:data.val()});
+        })
         console.log(this.state);
     }
-
-
-
 
 
     render() {
@@ -47,24 +49,22 @@ export default class ListScreen extends React.Component {
         if(this.state.inHonorOf){
             honor = <Card><Text style={style.cardText}>Donation In Honor Of: {this.state.inHonorOf}</Text></Card>;
         }
-
+        let lists;
+        let sum =0;
         return (
             <View>
-
-                <Text style={style.cardText}>List: {this.state.listID}</Text>
-                {
-                    Object.entries(this.state).map(function (item) {
-
+                <Text style={style.titleText}>List: {this.state.listID}</Text>
+                {Object.entries(this.state).map((item)=> {
                     if ((item[0] === 'jackets' || item[0]==='pants'||item[0]==='sweaters' ||item[0]==='shirts') && item[1]){
-                    return(<Card><Text style={style.cardText}>{item[0]} X {item[1]}</Text></Card>);
-
-                }
-                    })
-                }
-
+                        let price = this.state.values[item[0]];
+                        sum += item[1] * price;
+                        console.log(sum);
+                        return (<Card><Text style={style.cardText}>{item[0]} X {item[1]} @ ${price}</Text></Card>);
+                    }
+                })}
+                <Card><Text style={style.cardText}>Total Value: ${sum}</Text></Card>
                 {honor}
                 <Card><Text style={style.cardText}>Status: {this.state.status}</Text></Card>
-
             </View>
         );
     }
@@ -78,6 +78,11 @@ const style = StyleSheet.create({
         alignItems: "center",
     },
     cardText:{
+        textAlign:'center',
+        padding: 15
+    },
+    titleText:{
+        backgroundColor: Colors.buttonColor,
         textAlign:'center',
         padding: 15
     }
