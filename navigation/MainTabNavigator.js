@@ -37,6 +37,7 @@ HomeStack.navigationOptions = {
             }
         />
     ),
+    tabBarOptions: { activeTintColor: Colors.activeTintColor, }
 };
 
 HomeStack.path = '';
