@@ -63,7 +63,11 @@ export default class ListScreen extends React.Component {
         let sum =0;
         return (
             <ScrollView>
-                <Text style={style.titleText}>List: {this.state.listID}</Text>
+                <Card style={{marginBottom: 15,}}>
+                    <CardItem header style={{backgroundColor: '#b4db9c',}}><Icon style={{margin: 'auto', fontSize: 28 }} name="clipboard-list"/>
+                        <Text style={style.titleText}>List: {this.state.listID}</Text></CardItem>
+                </Card>
+
                 {Object.entries(this.state).map((item)=> {
                     if ((item[0] === 'jackets' || item[0]==='pants'||item[0]==='sweaters' ||item[0]==='shirts') && item[1]){
                         let price = this.state.values[item[0]];
@@ -117,9 +121,10 @@ const style = StyleSheet.create({
         padding:5,
     },
     titleText:{
-        backgroundColor: Colors.buttonColor,
+        fontWeight: 'bold',
+        fontSize: 15,
         textAlign:'center',
-        padding: 15
+        padding: 10
     },
     boldText:{
         fontWeight:'bold',

@@ -11,6 +11,8 @@ import {
     Thumbnail,
 
 } from "native-base";
+import Colors from "../constants/Colors";
+import Icon from "react-native-vector-icons/FontAwesome5";
 
 export default class MyDonationScreen extends React.Component {
     state = {
@@ -41,7 +43,12 @@ export default class MyDonationScreen extends React.Component {
         return(
             <View styel={style.container}>
                 <List>
-                {this.state.lists.map(listID => <ListItem key={listID}><Text onPress={this.onListClicked.bind(this, listID)} style={style.list} >List No.{listID}</Text></ListItem>)}
+                    <ListItem itemHeader first>
+                        <Text style={style.headerText}>My Donation Lists</Text>
+                    </ListItem>
+                {this.state.lists.map(listID => <ListItem key={listID}>
+                    <Icon style={{margin: 'auto', fontSize: 28 }} name="clipboard-list"/>
+                    <Text onPress={this.onListClicked.bind(this, listID)} style={style.list} >No.:  {listID}</Text></ListItem>)}
                 </List>
             </View>
         );
@@ -58,6 +65,11 @@ const style = StyleSheet.create({
     list:{
         textAlign:'center',
         padding: 15
-    }
+    },
+    headerText:{
+        color:  Colors.buttonColor,
+        fontWeight: "600",
+        fontSize:20,
+    },
 
 })
