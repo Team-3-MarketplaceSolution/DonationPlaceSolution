@@ -11,6 +11,7 @@ import FormGenerator from '../screens/AddItem';
 import ShippingInfo from '../screens/ShippingInfo';
 import MyDonationScreen from "../screens/MyDonationScreen";
 import ListScreen from "../screens/ListScreen";
+import Colors from "../constants/Colors";
 
 
 const config = Platform.select({
@@ -52,6 +53,7 @@ LinksStack.navigationOptions = {
     tabBarIcon: ({focused}) => (
         <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}/>
     ),
+    tabBarOptions: { activeTintColor: Colors.activeTintColor, }
 };
 
 LinksStack.path = '';
@@ -74,6 +76,7 @@ ProfileStack.navigationOptions = {
     tabBarIcon: ({focused}) => (
         <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-contact' : 'md-contact'}/>
     ),
+    tabBarOptions: { activeTintColor: Colors.activeTintColor, }
 };
 
 ProfileStack.path = '';
@@ -90,6 +93,7 @@ ShippingStack.navigationOptions = {
     tabBarIcon: ({focused}) => (
         <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-paper-plane' : 'md-paper-plane'}/>
     ),
+    tabBarOptions: { activeTintColor: Colors.activeTintColor, }
 };
 
 ShippingStack.path = '';
@@ -107,6 +111,7 @@ ItemStack.navigationOptions = {
     tabBarIcon: ({focused}) => (
         <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-add' : 'md-add'}/>
     ),
+    tabBarOptions: { activeTintColor: Colors.activeTintColor, }
 };
 
 ItemStack.path = '';

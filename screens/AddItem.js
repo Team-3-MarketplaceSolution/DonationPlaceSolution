@@ -69,7 +69,7 @@ export default class FormGenerator extends Component {
           />
         </View>
         <View style={styles.submitButton}>
-          <Button block onPress={()=>this.add()}>
+          <Button success block onPress={()=>this.add()}>
             <Text>Create List</Text>
           </Button>
         </View>

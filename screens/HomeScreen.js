@@ -1,7 +1,7 @@
 import * as WebBrowser from "expo-web-browser";
 import React from "react";
 import { AppLoading } from "expo";
-import { Image } from "react-native";
+import {Image, StyleSheet} from "react-native";
 import {
   Container,
   List,
@@ -67,7 +67,7 @@ export default class HomeScreen extends React.Component {
           </Card>
           <Card>
             <CardItem header bordered>
-              <Text>Activities</Text>
+              <Text style={style.headerText}>Activities</Text>
             </CardItem>
             <CardItem>
               <Left>
@@ -94,13 +94,13 @@ export default class HomeScreen extends React.Component {
             </CardItem>
             <CardItem>
               <Left>
-                <Button transparent>
+                <Button success transparent>
                   <Icon active name="thumbs-up" />
                   <Text>42 Likes</Text>
                 </Button>
               </Left>
               <Body>
-                <Button transparent>
+                <Button success transparent>
                   <Icon active name="chatbubbles" />
                   <Text>24 Comments</Text>
                 </Button>
@@ -136,13 +136,13 @@ export default class HomeScreen extends React.Component {
             </CardItem>
             <CardItem>
               <Left>
-                <Button transparent>
+                <Button success transparent>
                   <Icon active name="thumbs-up" />
                   <Text>44 Likes</Text>
                 </Button>
               </Left>
               <Body>
-                <Button transparent>
+                <Button success transparent>
                   <Icon active name="chatbubbles" />
                   <Text>73 Comments</Text>
                 </Button>
@@ -178,13 +178,13 @@ export default class HomeScreen extends React.Component {
             </CardItem>
             <CardItem>
               <Left>
-                <Button transparent>
+                <Button success transparent>
                   <Icon active name="thumbs-up" />
                   <Text>12 Likes</Text>
                 </Button>
               </Left>
               <Body>
-                <Button transparent>
+                <Button success transparent>
                   <Icon active name="chatbubbles" />
                   <Text>4 Comments</Text>
                 </Button>
@@ -220,13 +220,13 @@ export default class HomeScreen extends React.Component {
             </CardItem>
             <CardItem>
               <Left>
-                <Button transparent>
+                <Button success transparent>
                   <Icon active name="thumbs-up" />
                   <Text>97 Likes</Text>
                 </Button>
               </Left>
               <Body>
-                <Button transparent>
+                <Button success transparent>
                   <Icon active name="chatbubbles" />
                   <Text>112 Comments</Text>
                 </Button>
@@ -262,13 +262,13 @@ export default class HomeScreen extends React.Component {
             </CardItem>
             <CardItem>
               <Left>
-                <Button transparent>
+                <Button success transparent>
                   <Icon active name="thumbs-up" />
                   <Text>420 Likes</Text>
                 </Button>
               </Left>
               <Body>
-                <Button transparent>
+                <Button success transparent>
                   <Icon active name="chatbubbles" />
                   <Text>69 Comments</Text>
                 </Button>
@@ -281,7 +281,7 @@ export default class HomeScreen extends React.Component {
          
           <Card style={{ flex: 0 }}>
             <CardItem header bordered>
-              <Text>Organization description</Text>
+              <Text style={style.headerText}>Organization description</Text>
             </CardItem>
             <CardItem>
               <Body>
@@ -297,9 +297,28 @@ export default class HomeScreen extends React.Component {
             </CardItem>
             <CardItem>
               <Left>
-                <Button transparent textStyle={{ color: "#87838B" }}>
+                <Button success transparent textStyle={{ color: "#87838B" }}>
                   <Icon name="thumbs-up"/>
                   <Text>1,926 Likes</Text>
+                </Button>
+              </Left>
+            </CardItem>
+          </Card>
+
+          <Card style={{ flex: 0 }}>
+            <CardItem header bordered>
+              <Text style={style.headerText}>Our Mission</Text>
+            </CardItem>
+            <CardItem>
+              <Body>
+                <Text>Our mission is to connect you to our world of less fortunate who need basic necessities like clean water and sustainability. A world of nature and animals that need preservation. Help to slow down climate change, contribute to research and development for medical advancement, equality and sustainable work for women developing nations, while your year-to-date donation value is automatically E-filed with the IRS. For your income tax deductions and a higher return. No need to gather all of your donation receipts and statements. No more forgetting to claim your donations on your tax return. Consider this task complete when you donate through DonationPlace Solution.</Text>
+              </Body>
+            </CardItem>
+            <CardItem>
+              <Left>
+                <Button success transparent textStyle={{ color: "#87838B" }}>
+                  <Icon name="thumbs-up"/>
+                  <Text>1,228 Likes</Text>
                 </Button>
               </Left>
             </CardItem>
@@ -309,3 +328,14 @@ export default class HomeScreen extends React.Component {
     );
   }
 }
+
+const style = StyleSheet.create({
+
+  headerText:{
+    color:  Colors.buttonColor,
+    fontWeight: "600",
+    fontSize:20,
+  },
+
+})
+

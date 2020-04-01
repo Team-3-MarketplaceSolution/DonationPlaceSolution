@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View,ScrollView, Text, StyleSheet} from 'react-native';
 import * as firebase from "firebase";
 import {
     Container,
@@ -62,7 +62,7 @@ export default class ListScreen extends React.Component {
         let lists;
         let sum =0;
         return (
-            <View>
+            <ScrollView>
                 <Text style={style.titleText}>List: {this.state.listID}</Text>
                 {Object.entries(this.state).map((item)=> {
                     if ((item[0] === 'jackets' || item[0]==='pants'||item[0]==='sweaters' ||item[0]==='shirts') && item[1]){
@@ -70,10 +70,10 @@ export default class ListScreen extends React.Component {
                         sum += item[1] * price;
                         console.log(sum);
 
-                        return (<Card>
+                        return (<Card key={item[0]}>
                             <CardItem>
-                                <Left><View style={{backgroundColor:'#e9f5ec', width:60, height:60, justifyContent: 'center', alignItems: 'center' }}>
-                                    <Icon style={{margin: 'auto'}} size='large' name="tshirt"/>
+                                <Left ><View style={{backgroundColor:'#e9f5ec', width:60, height:60, justifyContent: 'center', alignItems: 'center' }}>
+                                    <Icon style={{margin: 'auto', fontSize: 28 }} name="tshirt"/>
                                 </View>
                                 </Left>
                                 <Body style={{ marginStart: -30}}><Text style={style.cardTitleText}>{item[0]}</Text>
@@ -81,7 +81,8 @@ export default class ListScreen extends React.Component {
                                 </Body>
                                 <Right><Badge style={{ backgroundColor: Colors.buttonColor }}>
                                     <Text>   {item[1]}   </Text>
-                                </Badge></Right></CardItem>
+                                </Badge></Right>
+                            </CardItem>
 
                         </Card>);
                     }
@@ -89,7 +90,7 @@ export default class ListScreen extends React.Component {
                 <Card><Text style={style.boldText}>Total Value: ${sum}</Text></Card>
                 {honor}
                 <Card><Text style={style.boldText}>Status: {this.state.status}</Text></Card>
-            </View>
+            </ScrollView>
         );
     }
 

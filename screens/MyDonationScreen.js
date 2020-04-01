@@ -40,7 +40,9 @@ export default class MyDonationScreen extends React.Component {
     render(){
         return(
             <View styel={style.container}>
-                {this.state.lists.map(listID => <Card><Text onPress={this.onListClicked.bind(this, listID)} key={listID} style={style.list} >List No.{listID}</Text></Card>)}
+                <List>
+                {this.state.lists.map(listID => <ListItem key={listID}><Text onPress={this.onListClicked.bind(this, listID)} style={style.list} >List No.{listID}</Text></ListItem>)}
+                </List>
             </View>
         );
 }
