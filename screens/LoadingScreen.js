@@ -5,7 +5,10 @@ import * as firebase from "firebase";
 export default class LoadingScreen extends React.Component {
     componentDidMount() {
         firebase.auth().onAuthStateChanged(user => {
-            this.props.navigation.navigate(user? "Main": "Auth")
+            let emailVerified;
+            emailVerified=user?user.emailVerified: null;
+            this.props.navigation.navigate(emailVerified? "Main": "Auth")
+            user?console.log('Email Verified', user.emailVerified):null;
         })
     }
 

@@ -44,6 +44,11 @@ export default class SignUpScreen extends React.Component {
                 .then(userCredentials => {
                     console.log(userCredentials);
                     this.writeUserData(userCredentials.user.uid, this.state.email, this.state.first_name, this.state.last_name);
+                    userCredentials.user.sendEmailVerification().then(function() {
+                        alert("Email Verification Send!");
+                    }).catch(function(error) {
+                        // An error happened.
+                    });
                     return userCredentials.user.updateProfile({
                         displayName: this.state.first_name
                     });

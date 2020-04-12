@@ -9,11 +9,27 @@ import SubmitButton from "../components/SubmitButton";
 
 //LOGIN CONTAINER
 export default class LoginScreen extends React.Component{
-    state = { email: '', password: '', errorMessage: null}
+    state = { email: '', password: '', errorMessage: null }
     handleLogin = () => {
         console.log(this.state.errorMessage);
         const {email, password} = this.state;
         firebase.auth().signInWithEmailAndPassword(email, password).catch(error => this.setState({errorMessage: error.message}));
+        firebase.auth().onAuthStateChanged(user => {
+            if(!user.emailVerified){
+                // console.log(user.emailVerified);
+                // user.sendEmailVerification().then(function() {
+                //     alert('Please verify your email! New verification email send!');
+                // }).catch(function(error) {
+                //     // An error happened.
+                // });
+                alert('Please verify your email!');
+            }else{
+                this.props.navigation.navigate( "Main");
+            }
+        })
+
+
+
     }
     render() {
         return (

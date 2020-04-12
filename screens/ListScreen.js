@@ -92,8 +92,8 @@ export default class ListScreen extends React.Component {
                     }
                 })}
                 <Card><Text style={style.boldText}>Total Value: ${sum}</Text></Card>
-                {honor}
                 <Card><Text style={style.boldText}>Status: {this.state.status}</Text></Card>
+                {honor}
             </ScrollView>
         );
     }
