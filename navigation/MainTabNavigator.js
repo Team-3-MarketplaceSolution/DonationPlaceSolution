@@ -12,6 +12,7 @@ import ShippingInfo from '../screens/ShippingInfo';
 import MyDonationScreen from "../screens/MyDonationScreen";
 import ListScreen from "../screens/ListScreen";
 import Colors from "../constants/Colors";
+import LeaveMessageScreen from "../screens/LeaveMessageScreen";
 
 
 const config = Platform.select({
@@ -64,6 +65,7 @@ const ProfileStack = createStackNavigator(
         Profile: ProfileScreen,
         EditProfile: EditProfileScreen,
         MyDonation: MyDonationScreen,
+        LeaveMessage: LeaveMessageScreen,
         List: ListScreen,
 
     },
