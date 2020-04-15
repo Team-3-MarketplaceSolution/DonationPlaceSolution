@@ -86,7 +86,7 @@ export default class ProfileScreen extends React.Component {
                 <View style={style.buttonContainer}>
                     <SubmitButton click={this.onMyDonationButtonClicked}>MyDonation</SubmitButton>
                     <SubmitButton click={this.onEditProfileButtonClicked}>Edit Profile</SubmitButton>
-                    <SubmitButton click={this.onLeaveMessageButtonClicked}>Leave Message</SubmitButton>
+                    <SubmitButton click={this.onLeaveMessageButtonClicked}>Help Center</SubmitButton>
                     <SubmitButton click={this.onSignOutButtonClicked}>Sign Out</SubmitButton>
                 </View>
             </ScrollView>
