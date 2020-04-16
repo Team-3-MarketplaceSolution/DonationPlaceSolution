@@ -44,7 +44,7 @@ export default class LeaveMessageScreen extends React.Component {
                         />
                         <Text style={styles.title}>Your Message: </Text>
                         <View style={styles.messageBody}>
-                            <TextInput
+                            <TextInput multiline
                                 // style={styles.messageBody}
                                 autoCapitalize="none"
                                 placeholder="Your Message"
@@ -57,7 +57,7 @@ export default class LeaveMessageScreen extends React.Component {
                     <SubmitButton click={this.handleEmail}>Leave Message</SubmitButton>
 
                     <View>
-                        <Text style={{padding: 20, marginTop: 20, fontWeight: 600, fontSize: 20, textAlign: 'center'}}>Contact
+                        <Text style={{padding: 20, marginTop: 20, fontWeight: 'bold', fontSize: 20, textAlign: 'center'}}>Contact
                             US</Text>
                         <Text style={styles.title2}>Get Information:</Text>
                         <Text>info@donationplacesolution.com</Text>
@@ -66,7 +66,7 @@ export default class LeaveMessageScreen extends React.Component {
                     </View>
 
                     <View style={styles.footerContainer}>
-                        <Text style={{padding: 20, marginTop: 10, color: 'white', fontWeight: 600, fontSize: 20,}}>Follow
+                        <Text style={{padding: 20, marginTop: 10, color: 'white', fontWeight: 'bold', fontSize: 20,}}>Follow
                             Us On</Text>
                         <View style={styles.iconContainer}>
                             <Icon style={styles.icon} name="github"/>
@@ -108,6 +108,7 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     messageBody: {
+        flexShrink: 1,
         textAlign: 'left',
         height: 180,
         justifyContent: 'flex-start',
