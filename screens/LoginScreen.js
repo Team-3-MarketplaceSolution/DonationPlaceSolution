@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { View, Text, TextInput, TouchableOpacity,StyleSheet, Button} from 'react-native';
+import {Image, View, Text, TextInput,StyleSheet, Button} from 'react-native';
 import StaticContainer from "react-native-web/src/vendor/react-native/StaticContainer";
 import * as firebase from "firebase";
 import Colors from "../constants/Colors";
@@ -34,7 +34,9 @@ export default class LoginScreen extends React.Component{
     render() {
         return (
             <View style={styles.container}>
-                <Text>{this.state.errorMessage}</Text>
+                <Image style={{padding:50,}} source={require('../assets/images/D_logo.png')}/>
+                <Text style={{color: Colors.buttonColor, padding:20, fontSize: '20em',fontWeight:'bold'}}>Donation Place</Text>
+                <Text style={{color:'red'}}>{this.state.errorMessage}</Text>
                 <TextInput
                     style={styles.textInput}
                     autoCapitalize="none"
