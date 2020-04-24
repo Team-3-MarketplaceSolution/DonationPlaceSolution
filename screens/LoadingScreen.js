@@ -6,9 +6,18 @@ export default class LoadingScreen extends React.Component {
     componentDidMount() {
         firebase.auth().onAuthStateChanged(user => {
             let emailVerified;
-            emailVerified=user?user.emailVerified: null;
-            this.props.navigation.navigate(emailVerified? "Main": "Auth")
-            user?console.log('Email Verified', user.emailVerified):null;
+            if(user != null){
+                emailVerified = user.emailVerified;
+            } else{
+                emailVerified =false;
+            }
+
+            if( user = null){
+                this.props.navigation.navigate( "Auth");
+            } else{
+                this.props.navigation.navigate(emailVerified? "Main": "Auth")
+            }
+
         })
     }
 
