@@ -68,7 +68,7 @@ How to get the application running:
 
 react-native-form-builder requires a peer of native-base
 
-To Install the peer dependecy
+To Install the peer dependency
 
 $ npm i native-base --save
 
